@@ -1,0 +1,16 @@
+upload icon https://wordpress.org/support/topic/own-icons-from-my-mediathek/
+
+icon in baseline
+
+https://wordpress.org/support/topic/how-to-top-align-icons/
+
+.wp-block-ilb-icon-list .ilbIconList ul.lists li .icon{
+    align-self: baseline;
+    margin-top: 4px;
+}
+
+
+** Future Add this Features **
+
+1. Right Link Icon set size
+2. Select form multiple icons

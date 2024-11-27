@@ -1,0 +1,310 @@
+{
+	"apiVersion": 2,
+	"name": "ilb/icon-list",
+	"title": "Icon List",
+	"description": "Use icons instead of bullets of list.",
+	"category": "widgets",
+	"keywords": [
+		"icon block",
+		"menu icon",
+		"icon list",
+		"list icon",
+		"icon fonts"
+	],
+	"textdomain": "icon-list",
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": ""
+		},
+		"isTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Icon List",
+			"selector": ".ilbIconList .title"
+		},
+		"isDesc": {
+			"type": "boolean",
+			"default": true
+		},
+		"desc": {
+			"type": "string",
+			"default": "Show list with the icons",
+			"selector": ".ilbIconList .description"
+		},
+		"lists": {
+			"type": "array",
+			"default": [
+				{
+					"icon": {
+						"class": "fa-solid fa-star"
+					},
+					"text": "List items with a star",
+					"des": "Type your description here",
+					"featureDes": "Feature with star",
+					"link": "",
+					"badgeTitle": "Popular",
+					"theme5Text": "Item with a star",
+					"theme5Des": "Type your description"
+				},
+				{
+					"icon": {
+						"class": "fa-solid fa-check-circle"
+					},
+					"text": "List items with a circle check",
+					"des": "Type your description here",
+					"featureDes": "Feature with circle check",
+					"link": "",
+					"badgeTitle": "Popular",
+					"theme5Text": "Item with circle check",
+					"theme5Des": "Type your description"
+				},
+				{
+					"icon": {
+						"class": "fa-solid fa-check-square"
+					},
+					"text": "List items with square check",
+					"des": "Type your description here",
+					"featureDes": "Feature with square check",
+					"link": "",
+					"badgeTitle": "Popular",
+					"theme5Text": "Item with square check",
+					"theme5Des": "Type your description"
+				},
+				{
+					"icon": {
+						"class": "fa-solid fa-heart"
+					},
+					"text": "List items with heart",
+					"des": "Type your description here",
+					"featureDes": "Feature with star",
+					"link": "",
+					"badgeTitle": "Popular",
+					"theme5Text": "Item with heart",
+					"theme5Des": "Type your description"
+				}
+			]
+		},
+		"isListLinkInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"alignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"position": {
+			"type": "string",
+			"default": "left"
+		},
+		"width": {
+			"type": "string",
+			"default": "600px"
+		},
+		"background": {
+			"type": "object",
+			"default": {
+				"color": "#0000"
+			}
+		},
+		"padding": {
+			"type": "object",
+			"default": {
+				"vertical": "30px",
+				"horizontal": "25px"
+			}
+		},
+		"border": {
+			"type": "object",
+			"default": {}
+		},
+		"shadow": {
+			"type": "object",
+			"default": {
+				"blur": "10px",
+				"color": "#4527a480"
+			}
+		},
+		"headerMargin": {
+			"type": "object",
+			"default": {
+				"side": 4,
+				"bottom": "30px"
+			}
+		},
+		"titleTypo": {
+			"type": "object",
+			"default": {
+				"fontSize": {
+					"desktop": 30,
+					"tablet": 26,
+					"mobile": 22
+				},
+				"fontWeight": 700,
+				"textTransform": "uppercase"
+			}
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#4527a4"
+		},
+		"descTypo": {
+			"type": "object",
+			"default": {
+				"fontSize": {
+					"desktop": 18,
+					"tablet": 17,
+					"mobile": 16
+				},
+				"fontWeight": 500
+			}
+		},
+		"descColor": {
+			"type": "string",
+			"default": "#828282"
+		},
+		"descriptionTypo": {
+			"type": "object",
+			"default": {
+				"fontSize": {
+					"desktop": 15,
+					"tablet": 15,
+					"mobile": 15
+				}
+			}
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#828282"
+		},
+		"isHeaderSep": {
+			"type": "boolean",
+			"default": true
+		},
+		"themeOptions": {
+			"type": "object",
+			"default": {
+				"rightIconColor": "#4527A4",
+				"isBadge": false,
+				"isUrlIcon": false
+			}
+		},
+		"headerSep": {
+			"type": "object",
+			"default": {
+				"width": "20%",
+				"height": "2px",
+				"style": "solid",
+				"color": "#828282"
+			}
+		},
+		"listIconSize": {
+			"type": "number",
+			"default": 20
+		},
+		"listIconColors": {
+			"type": "object",
+			"default": {
+				"color": "#fff",
+				"bg": "#4527A4"
+			}
+		},
+		"listTextTypo": {
+			"type": "object",
+			"default": {
+				"fontSize": {
+					"desktop": 18,
+					"tablet": 15,
+					"mobile": 15
+				}
+			}
+		},
+		"listTextColor": {
+			"type": "string",
+			"default": "#828282"
+		},
+		"themes": {
+			"type": "object",
+			"default": {
+				"theme": "default"
+			}
+		},
+		"featureThemeStyles": {
+			"type": "object",
+			"default": {
+				"featureIconSize": 28,
+				"iconColor": "#A6AEBF"
+			}
+		},
+		"featureTitle": {
+			"type": "string",
+			"default": "Our Features"
+		},
+		"featureTypo": {
+			"type": "object",
+			"default": {
+				"fontSize": {
+					"desktop": 30,
+					"tablet": 26,
+					"mobile": 22
+				}
+			}
+		},
+		"badgeStyles": {
+			"type": "object",
+			"default": {
+				"color": "#fff",
+				"bg": "#4527A4"
+			}
+		},
+		"badgeTextTypo": {
+			"type": "object",
+			"default": {
+				"fontSize": {
+					"desktop": 14,
+					"tablet": 12,
+					"mobile": 10
+				}
+			}
+		},
+		"listItemsBgColor": {
+			"type": "object",
+			"default": {
+				"color": "#0000"
+			}
+		},
+		"theme5Styles": {
+			"type": "object",
+			"default": {
+				"iconPulsColor": "linear-gradient(135deg, #3b82f6, #8b5cf6)",
+				"iconBgBlur": "linear-gradient(135deg, #3b82f6, #8b5cf6)"
+			}
+		}
+	},
+	"supports": {
+		"align": [
+			"wide",
+			"full"
+		],
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"preview": true
+		}
+	},
+	"editorScript": [
+		"file:./index.js",
+		"wp-api"
+	],
+	"editorStyle": "file:./index.css",
+	"style": [
+		"file:./view.css",
+		"fontAwesome"
+	],
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js"
+}
