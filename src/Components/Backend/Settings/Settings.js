@@ -1,10 +1,10 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
-import { PanelBody, PanelRow, TabPanel, RangeControl, TextControl, ToggleControl, __experimentalUnitControl as UnitControl, Button, Dashicon } from '@wordpress/components';
+import { PanelBody, PanelRow, TabPanel, RangeControl, TextControl, ToggleControl, __experimentalUnitControl as UnitControl, Button, Dashicon, SelectControl } from '@wordpress/components';
 import { useState } from "react";
 
 // Settings Components
-import { Label, Background, ColorControl, ColorsControl, HelpPanel, IconControl, SeparatorControl, Typography } from '../../../../../bpl-tools/Components';
+import { Label, Background, ColorControl, ColorsControl, HelpPanel, IconControl, SeparatorControl, Typography, InlineMediaUpload } from '../../../../../bpl-tools/Components';
 import { BorderControl, ShadowControl, SpaceControl } from '../../../../../bpl-tools/Components/Deprecated';
 import { gearIcon } from '../../../../../bpl-tools/utils/icons';
 import { pxUnit, perUnit, emUnit } from '../../../../../bpl-tools/utils/options';
@@ -14,11 +14,13 @@ import { generalStyleTabs } from '../../../utils/options';
 import { produce } from 'immer';
 
 const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiveIndex, isPremium }) => {
-	const { isTitle, isDesc, lists, isListLinkInNewTab, alignment, width, background, padding, border, shadow, position, headerMargin, titleColor, descTypo, descColor, isHeaderSep, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, themes, descriptionTypo, descriptionColor, themeOptions, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor } = attributes;
+	const { isTitle, isDesc, lists, isListLinkInNewTab, alignment, width, background, padding, border, shadow, position, headerMargin, titleColor, descTypo, descColor, isHeaderSep, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, themes, descriptionTypo, descriptionColor, themeOptions, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton } = attributes;
 
-	const { rightIconColor, isBadge, isUrlIcon } = themeOptions;
+	const { rightIconColor, isBadge, isUrlIcon, isButton, isMaxWidth } = themeOptions;
 	const { featureIconSize } = featureThemeStyles;
 	const { iconPulsColor, iconBgBlur } = theme5Styles;
+	const { animateColor } = singleIconColor;
+	const { setIconUpload } = iconUploadButton;
 
 	const [isProModalOpen, setIsProModalOpen] = useState(false);
 
@@ -37,13 +39,15 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 				featureDes: "Feature with star",
 				link: "",
 				badgeTitle: "Popular",
-				theme5Text: "Item with a star",
-				theme5Des: "Type your description"
+				theme6BtnTitle: "action",
+				uploadIconUrl: "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
 
 			}]
 		});
 		setActiveIndex(lists.length);
 	}
+
+	const uploadUrl = "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png";
 
 	const duplicateList = e => {
 		e.preventDefault();
@@ -61,7 +65,8 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 		setActiveIndex(0 === activeIndex ? 0 : activeIndex - 1);
 	}
 
-	const { icon = {}, link = '', badgeTitle = "Popular" } = lists[activeIndex] || {};
+	const { icon = {}, link = '', badgeTitle = "Popular", theme6BtnTitle = "action", uploadIconUrl = uploadUrl } = lists[activeIndex] || {};
+
 
 	return <>
 		<InspectorControls>
@@ -78,7 +83,47 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 						{null !== activeIndex && <>
 							<h3 className='bplItemTitle'>{__(`List item ${activeIndex + 1}:`, 'icon-list')}</h3>
 
-							<IconControl value={icon} onChange={val => updateList('icon', val)} defaults={{ class: 'fas fa-check-square' }} isSize={false} isColor={false} />
+							<div className="startPosition">
+								<h2>List Icon Insert System</h2>
+								<div className="position-buttons" style={{ display: 'flex' }}>
+									<button
+										className={`position-button ${iconUploadButton.setIconUpload === 'select' ? 'active' : ''}`}
+										onClick={() => setAttributes({ iconUploadButton: { ...iconUploadButton, setIconUpload: 'select' } })}
+									>
+										Select Icon
+									</button>
+									<button
+										className={`position-button ${iconUploadButton.setIconUpload === 'upload' ? 'active' : ''}`}
+										onClick={() => setAttributes({ iconUploadButton: { ...iconUploadButton, setIconUpload: 'upload' } })}
+									>
+										Upload Icon
+									</button>
+								</div>
+							</div>
+
+							{
+								"upload" === setIconUpload && <>
+									<InlineMediaUpload
+										label={__("Upload Image URL", "icon-list")}
+										value={uploadIconUrl}
+										onChange={val => {
+											const newUploadIcon = produce(lists, draft => {
+												draft[activeIndex].uploadIconUrl = val
+											})
+											setAttributes({ lists: newUploadIcon })
+										}}
+									/>
+								</>
+							}
+
+							{
+								"select" === setIconUpload && <>
+									<IconControl value={icon} onChange={val => updateList('icon', val)} defaults={{ class: 'fas fa-check-square' }} isSize={false} isColor={false} />
+								</>
+							}
+
+
+
 
 							<Label>{__('Link:', 'icon-list')}</Label>
 							<TextControl value={link} onChange={val => updateList('link', val)} />
@@ -101,6 +146,13 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 
 							}
 
+							{
+								"theme6" === theme && <>
+									<Label>{__('Button Title:', 'icon-list')}</Label>
+									<TextControl value={theme6BtnTitle} onChange={val => updateList('theme6BtnTitle', val)} />
+								</>
+							}
+
 							<PanelRow className='itemAction mt20 mb15'>
 								{1 < lists?.length && <Button className='removeItem' label={__('Remove', 'icon-list')} onClick={removeList} ><Dashicon icon='no' />{__('Remove', 'icon-list')}</Button>}
 
@@ -114,7 +166,7 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 					</PanelBody>
 
 					<PanelBody className='bplPanelBody' title={__('Themes', 'icon-list')} initialOpen={false}>
-						<SelectControlPro
+						{/* <SelectControlPro
 							label={__("Select Theme:", "icon-list")}
 							labelPosition='left'
 							value={themes.theme} // This sets the initial value
@@ -128,6 +180,22 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 							onChange={(selectedTheme) => setAttributes({ themes: { ...themes, theme: selectedTheme } })}
 							{...premiumProps}
 							proValues={['theme2', 'theme3', 'theme4', 'theme5']}
+						/> */}
+
+						<SelectControl
+							label={__("Select Theme:", "icon-list")}
+							labelPosition='left'
+							value={themes.theme} // This sets the initial value
+							options={[
+								{ label: 'Default', value: 'default' },
+								{ label: 'Theme 2', value: 'theme2' },
+								{ label: 'Theme 3', value: 'theme3' },
+								{ label: 'Theme 4', value: 'theme4' },
+								{ label: 'Theme 5', value: 'theme5' },
+								{ label: 'Theme 6', value: 'theme6' },
+								{ label: 'Theme 7', value: 'theme7' }
+							]}
+							onChange={(selectedTheme) => setAttributes({ themes: { ...themes, theme: selectedTheme } })}
 						/>
 					</PanelBody>
 
@@ -173,14 +241,49 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 								/>
 							</>
 						}
+
+						{
+							"theme6" === theme &&
+							<ToggleControl
+								className='mt10'
+								label={__('Show Action Button', 'icon-list')}
+								checked={isButton}
+								onChange={val => {
+									const newButton = produce(themeOptions, draft => {
+										draft.isButton = val
+									})
+									setAttributes({ themeOptions: newButton })
+								}}
+							/>
+						}
 					</PanelBody>
 				</>}
 
 
 				{'style' === tab.name && <>
 					<PanelBody className='bPlPanelBody' title={__('Card', 'icon-list')}>
-						<UnitControl label={__('Width:', 'icon-list')} labelPosition='left' value={width} onChange={val => setAttributes({ width: val })} units={[pxUnit(), perUnit(), emUnit()]} />
-						<small>{__('Keep width 0, to auto width.', 'icon-list')}</small>
+
+						{
+							isMaxWidth && <>
+								<UnitControl label={__('Width:', 'icon-list')} labelPosition='left' value={width} onChange={val => setAttributes({ width: val })} units={[pxUnit(), perUnit(), emUnit()]} />
+								<small>{__('Keep width set your align wide', 'icon-list')}</small>
+							</>
+						}
+
+						<ToggleControl className='mt10'
+							label={__('Show Max Width:', 'icon-list')}
+							checked={isMaxWidth}
+							onChange={val => {
+								const newVal = produce(themeOptions, draft => {
+									draft.isMaxWidth = val
+								})
+								setAttributes({ themeOptions: newVal })
+							}}
+						/>
+
+						{
+							isMaxWidth === false && <small style={{ fontWeight: "bold" }} className='mt5'>{__('Now your width 100% auto', 'icon-list')}</small>
+						}
 
 						<Background className='mt20' label={__('Background:', 'icon-list')} value={background} onChange={val => setAttributes({ background: val })} defaults={{ color: '#0000' }} />
 
@@ -191,47 +294,29 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 						<ShadowControl label={__('Shadow:', 'icon-list')} value={shadow} onChange={val => setAttributes({ shadow: val })} defaults={{ blur: '10px', color: '#4527a480' }} />
 					</PanelBody>
 
+					<PanelBody className='bPlPanelBody' title={__('Header', 'icon-list')} initialOpen={false}>
+						<SpaceControl className='mt20' label={__('Margin:', 'icon-list')} value={headerMargin} onChange={val => setAttributes({ headerMargin: val })} defaults={{ side: 4, bottom: '30px' }} />
 
-					{
-						"default" === theme &&
-						<PanelBody className='bPlPanelBody' title={__('Header', 'icon-list')} initialOpen={false}>
-							<SpaceControl className='mt20' label={__('Margin:', 'icon-list')} value={headerMargin} onChange={val => setAttributes({ headerMargin: val })} defaults={{ side: 4, bottom: '30px' }} />
+						<ToggleControl className='mt20' label={__('Show Title', 'icon-list')} checked={isTitle} onChange={val => setAttributes({ isTitle: val })} />
 
-							<ToggleControl className='mt20' label={__('Show Title', 'icon-list')} checked={isTitle} onChange={val => setAttributes({ isTitle: val })} />
+						{isTitle && <>
+							<Typography label={__('Title Typography:', 'icon-list')} value={featureTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: { desktop: 30, tablet: 26, mobile: 22 }, fontWeight: 700, textTransform: 'uppercase' }} />
 
-							{isTitle && <>
-								<Typography label={__('Title Typography:', 'icon-list')} value={featureTypo} onChange={val => setAttributes({ titleTypo: val })} defaults={{ fontSize: { desktop: 30, tablet: 26, mobile: 22 }, fontWeight: 700, textTransform: 'uppercase' }} />
+							<ColorControl label={__('Title Color:', 'icon-list')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#4527a4' />
+						</>}
 
-								<ColorControl label={__('Title Color:', 'icon-list')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#4527a4' />
-							</>}
+						<ToggleControl className='mt20' label={__('Show Description', 'icon-list')} checked={isDesc} onChange={val => setAttributes({ isDesc: val })} />
 
-							<ToggleControl className='mt20' label={__('Show Description', 'icon-list')} checked={isDesc} onChange={val => setAttributes({ isDesc: val })} />
+						{isDesc && <>
+							<Typography label={__('Description Typography:', 'icon-list')} value={descTypo} onChange={val => setAttributes({ descTypo: val })} defaults={{ fontSize: { desktop: 18, tablet: 17, mobile: 16 } }} />
 
-							{isDesc && <>
-								<Typography label={__('Description Typography:', 'icon-list')} value={descTypo} onChange={val => setAttributes({ descTypo: val })} defaults={{ fontSize: { desktop: 18, tablet: 17, mobile: 16 } }} />
+							<ColorControl label={__('Description Color:', 'icon-list')} value={descColor} onChange={val => setAttributes({ descColor: val })} defaultColor='#828282' />
+						</>}
 
-								<ColorControl label={__('Description Color:', 'icon-list')} value={descColor} onChange={val => setAttributes({ descColor: val })} defaultColor='#828282' />
-							</>}
+						<ToggleControl className='mt20' label={__('Show Separator', 'icon-list')} checked={isHeaderSep} onChange={val => setAttributes({ isHeaderSep: val })} />
 
-							<ToggleControl className='mt20' label={__('Show Separator', 'icon-list')} checked={isHeaderSep} onChange={val => setAttributes({ isHeaderSep: val })} />
-
-							{isHeaderSep && <SeparatorControl value={headerSep} onChange={val => setAttributes({ headerSep: val })} defaults={{ width: '20%', height: '2px', style: 'solid', color: '#828282' }} />}
-						</PanelBody>
-					}
-
-					{/* Theme 3 setting Here */}
-					{
-						"theme3" === theme &&
-						<PanelBody className='bPlPanelBody' title={__('Header', 'icon-list')} initialOpen={false}>
-							<ToggleControl className='mt10' label={__('Show Title', 'icon-list')} checked={isTitle} onChange={val => setAttributes({ isTitle: val })} />
-
-							{isTitle && <>
-								<Typography label={__('Title Typography:', 'icon-list')} value={featureTypo} onChange={val => setAttributes({ featureTypo: val })} defaults={{ fontSize: { desktop: 30, tablet: 26, mobile: 22 }, fontWeight: 700, textTransform: 'capitalize' }} />
-
-								<ColorControl label={__('Title Color:', 'icon-list')} value={titleColor} onChange={val => setAttributes({ titleColor: val })} defaultColor='#4527a4' />
-							</>}
-						</PanelBody>
-					}
+						{isHeaderSep && <SeparatorControl value={headerSep} onChange={val => setAttributes({ headerSep: val })} defaults={{ width: '20%', height: '2px', style: 'solid', color: '#828282' }} />}
+					</PanelBody>
 
 					<PanelBody className='bPlPanelBody' title={__('List', 'icon-list')} initialOpen={false}>
 
@@ -319,7 +404,7 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 
 						{/* Theme 3 style setting here */}
 						{
-							"theme3" === theme && <>
+							("theme3" === theme || "theme6" === theme) && <>
 								<Label>{__('Icon Size:', 'icon-list')}</Label>
 								<RangeControl value={featureIconSize} onChange={val => {
 									const newSize = produce(featureThemeStyles, draft => {
@@ -328,19 +413,19 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 									setAttributes({ featureThemeStyles: newSize })
 								}} min={0} max={120} step={1} allowReset={true} resetFallbackValue={28} initialPosition={28} />
 
-								<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#0000' }} />
+								<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
 
 								<Typography label={__('Description Typography:', 'icon-list')} value={listTextTypo} onChange={val => setAttributes({ listTextTypo: val })} defaults={{ fontSize: { desktop: 18, tablet: 15, mobile: 15 }, fontWeight: 500 }} />
 
 								<ColorControl label={__('Description Color:', 'icon-list')} value={listTextColor} onChange={val => setAttributes({ listTextColor: val })} defaultColor='#828282' />
+
 							</>
 						}
-
 
 						{/* Theme: 5 setting here */}
 
 						{
-							"theme5" === theme && <>
+							("theme5" === theme || "theme7" === theme) && <>
 								<Label>{__('Icon Size:', 'icon-list')}</Label>
 								<RangeControl value={featureIconSize} onChange={val => {
 									const newSize = produce(featureThemeStyles, draft => {
@@ -348,6 +433,19 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 									})
 									setAttributes({ featureThemeStyles: newSize })
 								}} min={0} max={120} step={1} allowReset={true} resetFallbackValue={28} initialPosition={28} />
+
+								{
+									"theme7" === theme && <ColorControl
+										label={__('Animate Circle Color:', 'icon-list')}
+										value={animateColor} onChange={val => {
+											const newColor = produce(singleIconColor, draft => {
+												draft.animateColor = val;
+											})
+											setAttributes({ singleIconColor: newColor })
+										}}
+										defaultColor='linear-gradient(135deg, #3b82f6, #8b5cf6)'
+									/>
+								}
 
 								<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
 
@@ -359,8 +457,13 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 								<Typography label={__('Description Typography:', 'icon-list')} value={descriptionTypo} onChange={val => setAttributes({ descriptionTypo: val })} defaults={{ fontSize: { desktop: 15, tablet: 15, mobile: 15 }, fontWeight: 500 }} />
 
 								<ColorControl label={__('Description Color:', 'icon-list')} value={descriptionColor} onChange={val => setAttributes({ descriptionColor: val })} defaultColor='#828282' />
+							</>
+						}
 
 
+						{/* Theme: 5 general settings */}
+						{
+							"theme5" === theme && <>
 								{/* Premium ColorControl for Theme 5 Icon Puls animate Color */}
 								<BControlPro
 									label={__('Icon Pulse Color:', 'icon-list')}
@@ -389,6 +492,23 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 									defaultColor='linear-gradient(135deg, #3b82f6, #8b5cf6)'
 									Component={ColorControl}
 									{...premiumProps}
+								/>
+							</>
+						}
+
+
+						{/* Theme: 6 General setting */}
+						{
+							"theme6" === theme && <>
+								<ColorsControl label={__('Button Colors', 'icon-list')} value={theme6Styles} onChange={val => setAttributes({ theme6Styles: val })} defaults={{ color: '#fff', bg: '#059669' }} />
+
+								<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#0000' }} />
+
+								<Typography
+									label={__('ButtonTypography:', 'icon-list')}
+									value={badgeTextTypo}
+									onChange={val => setAttributes({ badgeTextTypo: val })}
+									defaults={{ fontSize: { desktop: 14, tablet: 12, mobile: 10 }, fontWeight: 500 }}
 								/>
 							</>
 						}

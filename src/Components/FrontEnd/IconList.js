@@ -6,15 +6,15 @@ const IconList = ({ attributes }) => {
 	const { theme = 'default' } = themes;
 	return <>
 		<div className={`${prefix} ${position}`}>
-			{'default' === theme && <>
-				{isTitle || isDesc ? <div className='header'>
-					{isTitle && title && <h3 className='title' dangerouslySetInnerHTML={{ __html: title }} />}
 
-					{isDesc && desc && <p className='description' dangerouslySetInnerHTML={{ __html: desc }} />}
+			{isTitle || isDesc ? <div className='header'>
+				{isTitle && title && <h3 className='title' dangerouslySetInnerHTML={{ __html: title }} />}
 
-					{isHeaderSep && <span className='separator' />}
-				</div> : null}
-			</>}
+				{isDesc && desc && <p className='description' dangerouslySetInnerHTML={{ __html: desc }} />}
+
+				{isHeaderSep && <span className='separator' />}
+			</div> : null}
+
 
 			{
 				'theme3' === theme && <>
@@ -26,7 +26,7 @@ const IconList = ({ attributes }) => {
 
 			<ul className={`lists ${theme}`}>
 				{lists?.map((list, index) => {
-					const { text, link, des, badgeTitle } = list;
+					const { text, link, des, badgeTitle, theme6BtnTitle } = list;
 
 					const textEl = 'theme2' === theme ? <h3 className='text' dangerouslySetInnerHTML={{ __html: text }} /> : <p className='text' dangerouslySetInnerHTML={{ __html: text }} />
 
@@ -38,9 +38,11 @@ const IconList = ({ attributes }) => {
 
 					const theme5DesSl = <p className='card-description' dangerouslySetInnerHTML={{ __html: des }} />
 
+					const theme6DesSl = <p className='theme6Des' dangerouslySetInnerHTML={{ __html: des }} />
+
 					return <LinkChecker key={index} {...{ link, isListLinkInNewTab }}>
 						<li className='list'>
-							<Themes {...{ attributes, list, textEl, desEl, featureDesEl, badgeTitle, link, theme5TextSl, theme5DesSl }} />
+							<Themes {...{ attributes, list, textEl, desEl, featureDesEl, badgeTitle, link, theme5TextSl, theme5DesSl, theme6BtnTitle, theme6DesSl }} />
 						</li>
 					</LinkChecker>
 				})}

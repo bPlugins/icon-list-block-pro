@@ -3,13 +3,17 @@ import { getBackgroundCSS, getBorderCSS, getColorsCSS, getSeparatorCSS, getShado
 import { prefix } from '../../utils/data';
 
 const Style = ({ attributes, id }) => {
-	const { alignment, width, background, padding, border, shadow, headerMargin, titleTypo, titleColor, descTypo, descColor, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, descriptionColor, descriptionTypo, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor } = attributes;
+	const { alignment, width, background, padding, border, shadow, headerMargin, titleTypo, titleColor, descTypo, descColor, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, descriptionColor, descriptionTypo, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, themeOptions } = attributes;
 
 	const { featureIconSize } = featureThemeStyles;
 	const { iconPulsColor, iconBgBlur } = theme5Styles;
+	const { animateColor } = singleIconColor;
+	const { isMaxWidth } = themeOptions;
 
 	const mainSl = `#${id}`;
 	const iconListSl = `${mainSl} .${prefix}`;
+
+
 	const headerSl = `${iconListSl} .header`;
 	const featureHeader = `${iconListSl} .featureHeader`;
 
@@ -18,6 +22,8 @@ const Style = ({ attributes, id }) => {
 	const listItemsBgSl = `${iconListSl} ul.lists li.list`;
 
 	const featureIconSl = `${featureSl} .icon-wrapper .theme3Icon`;
+	const featureImgSl = `${featureSl} .icon-wrapper`;
+
 	const featureDesSl = `${featureSl} .featureDescription`;
 
 	const badgeSl = `${iconListSl} ul.theme4 .badge`;
@@ -32,8 +38,22 @@ const Style = ({ attributes, id }) => {
 	const theme5DesSl = `${iconListSl} ul.theme5 .card-description`;
 	const theme5BgBlurSl = `${iconListSl} ul.theme5 .icon-container .icon-bg-blur`;
 	const theme5IconPulsSl = `${iconListSl} ul.theme5 .icon-wrapper .icon-pulse`;
+	const theme6IconSl = `${iconListSl} ul.theme6 .icon-container .theme6Icon`;
+	const theme6ImgSl = `${iconListSl} ul.theme6 .icon-container`;
+	const theme6DesSl = `${iconListSl} ul.theme6 .theme6Des`;
+	const theme6BtnSl = `${iconListSl} ul.theme6 .try-button`;
+
+	const theme7CardSl = `${iconListSl} ul.theme7 .glass-card`;
+	const theme7TitleSl = `${iconListSl} ul.theme7 .card-title`;
+	const theme7DesSl = `${iconListSl} ul.theme7 .card-description`;
+	const theme7IconSl = `${iconListSl} ul.theme7 .theme7Icon`;
+	const theme7ImgSl = `${iconListSl} ul.theme7 .icon-satellite`;
+	const theme7satelliteSl = `${iconListSl} ul.theme7 .orbit .satellite`;
+
 
 	const iconSize = 30 < listIconSize ? listIconSize + listIconSize / 2 : listIconSize + listIconSize / 1.5;
+
+	// ${['0px', '0%', '0em'].includes(width) ? 'auto' : width};
 
 	return <style dangerouslySetInnerHTML={{
 		__html: `
@@ -49,13 +69,30 @@ const Style = ({ attributes, id }) => {
 		${getTypoCSS(`${badgeSl}`, badgeTextTypo)?.styles}
 		${getTypoCSS(`${theme5TitleSl}`, listTextTypo)?.styles}
 		${getTypoCSS(`${theme5DesSl}`, descriptionTypo)?.styles}
+		${getTypoCSS(`${theme6DesSl}`, listTextTypo)?.styles}
+		${getTypoCSS(`${theme6BtnSl}`, badgeTextTypo)?.styles}
+		${getTypoCSS(`${theme7TitleSl}`, listTextTypo)?.styles}
+		${getTypoCSS(`${theme7DesSl}`, descriptionTypo)?.styles}
+	
 
-
+		${featureImgSl} img{
+			width: ${featureIconSize}px;
+			height: ${featureIconSize}px;
+		}
+		${theme6ImgSl} img{
+			width: ${featureIconSize}px;
+			height: ${featureIconSize}px;
+			max-width:initial;
+		}
+		${theme7ImgSl} img{
+			width: ${featureIconSize}px;
+			height: ${featureIconSize}px;
+		}
 		${mainSl}{
 			text-align: ${alignment};
 		}
 		${iconListSl}{
-			width: ${['0px', '0%', '0em'].includes(width) ? 'auto' : width};
+			width: ${isMaxWidth ? width : '100%'};
 			${getBackgroundCSS(background)}
 			padding: ${getSpaceCSS(padding)};
 			${getBorderCSS(border)}
@@ -139,6 +176,34 @@ const Style = ({ attributes, id }) => {
 		${theme5IconWrapper}{
 			width: calc(${featureIconSize}px/2 + 4rem);
 			height: calc(${featureIconSize}px/2 + 4rem);
+		}
+		${theme6IconSl}{
+			font-size: ${featureIconSize}px;
+			${getColorsCSS(listIconColors)}
+		    padding: 7px;
+            border-radius: 4px;
+		}
+		${theme6DesSl}{
+			color: ${listTextColor};
+		}
+		${theme6BtnSl}{
+			${getColorsCSS(theme6Styles)}
+		}
+		${theme7CardSl}{
+			${getBackgroundCSS(listItemsBgColor)}
+		}
+		${theme7TitleSl}{
+			color: ${listTextColor};
+		}
+		${theme7IconSl}{
+			font-size: ${featureIconSize}px;
+			${getColorsCSS(listIconColors)}
+		}
+		${theme7satelliteSl}{
+			background: ${animateColor};
+		}
+		${theme7DesSl}{
+			color: ${descriptionColor};
 		}
 		`.replace(/\s+/g, ' ')
 	}} />;

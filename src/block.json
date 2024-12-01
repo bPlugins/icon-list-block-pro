@@ -47,20 +47,20 @@
 					"featureDes": "Feature with star",
 					"link": "",
 					"badgeTitle": "Popular",
-					"theme5Text": "Item with a star",
-					"theme5Des": "Type your description"
+					"theme6BtnTitle": "action",
+					"uploadIconUrl": "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
 				},
 				{
 					"icon": {
 						"class": "fa-solid fa-check-circle"
 					},
-					"text": "List items with a circle check",
+					"text": "List items with circle",
 					"des": "Type your description here",
 					"featureDes": "Feature with circle check",
 					"link": "",
 					"badgeTitle": "Popular",
-					"theme5Text": "Item with circle check",
-					"theme5Des": "Type your description"
+					"theme6BtnTitle": "action",
+					"uploadIconUrl": "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
 				},
 				{
 					"icon": {
@@ -71,8 +71,8 @@
 					"featureDes": "Feature with square check",
 					"link": "",
 					"badgeTitle": "Popular",
-					"theme5Text": "Item with square check",
-					"theme5Des": "Type your description"
+					"theme6BtnTitle": "action",
+					"uploadIconUrl": "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
 				},
 				{
 					"icon": {
@@ -83,8 +83,8 @@
 					"featureDes": "Feature with star",
 					"link": "",
 					"badgeTitle": "Popular",
-					"theme5Text": "Item with heart",
-					"theme5Des": "Type your description"
+					"theme6BtnTitle": "action",
+					"uploadIconUrl": "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
 				}
 			]
 		},
@@ -188,8 +188,16 @@
 			"type": "object",
 			"default": {
 				"rightIconColor": "#4527A4",
-				"isBadge": false,
-				"isUrlIcon": false
+				"isBadge": true,
+				"isUrlIcon": false,
+				"isButton": true,
+				"isMaxWidth": true
+			}
+		},
+		"iconUploadButton": {
+			"type": "object",
+			"default": {
+				"setIconUpload": "select"
 			}
 		},
 		"headerSep": {
@@ -210,6 +218,20 @@
 			"default": {
 				"color": "#fff",
 				"bg": "#4527A4"
+			}
+		},
+		"theme6Styles": {
+			"type": "object",
+			"default": {
+				"color": "#fff",
+				"bg": "#059669"
+			}
+		},
+		"singleIconColor": {
+			"type": "object",
+			"default": {
+				"color": "#059669",
+				"animateColor": "linear-gradient(135deg, #3b82f6, #8b5cf6)"
 			}
 		},
 		"listTextTypo": {

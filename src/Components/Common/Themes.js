@@ -1,23 +1,38 @@
 import { FaExternalLinkAlt } from '../../utils/icons';
-// import { Award } from 'lucide-react';
 
-const Themes = ({ attributes, list, textEl, desEl, featureDesEl, badgeTitle, link, theme5TextSl, theme5DesSl }) => {
-	const { themes, themeOptions } = attributes;
+
+const Themes = ({ attributes, list, textEl, desEl, featureDesEl, badgeTitle, link, theme5TextSl, theme5DesSl, theme6BtnTitle, theme6DesSl }) => {
+
+
+	const { themes, themeOptions, iconUploadButton } = attributes;
+	const { rightIconColor, isBadge, isUrlIcon, isButton } = themeOptions;
+	const { setIconUpload } = iconUploadButton;
 	const { theme } = themes;
-	const { rightIconColor, isBadge, isUrlIcon } = themeOptions;
 
-	const { icon } = list;
+	const { icon, uploadIconUrl } = list;
 
 	const iconEl = icon?.class && <i className={`icon ${icon?.class}`} />
 
 	const theme3IconEl = icon?.class && <i className={`theme3Icon ${icon?.class}`} />
 	const theme5IconEl = icon?.class && <i className={`theme5Icon ${icon?.class}`} />
+	const theme6IconEl = icon?.class && <i className={`theme6Icon ${icon?.class}`} />
+	const theme7IconEl = icon?.class && <i className={`theme7Icon ${icon?.class}`} />
+
 
 	switch (theme) {
 		case 'theme2':
 			return <>
 				<div className="icon red">
-					{iconEl}
+
+					{
+						"select" === setIconUpload && <>{iconEl}</>
+					}
+
+					{
+						"upload" === setIconUpload && <>
+							<img src={uploadIconUrl} alt="" />
+						</>
+					}
 				</div>
 
 				<div className="content">
@@ -35,7 +50,14 @@ const Themes = ({ attributes, list, textEl, desEl, featureDesEl, badgeTitle, lin
 				<div className="feature-container">
 					<div className='feature'>
 						<div className="icon-wrapper">
-							{theme3IconEl}
+							{
+								"select" === setIconUpload && <>{theme3IconEl}</>
+							}
+							{
+								"upload" === setIconUpload && <>
+									<img src={uploadIconUrl} alt="" />
+								</>
+							}
 						</div>
 						{featureDesEl}
 					</div>
@@ -45,7 +67,14 @@ const Themes = ({ attributes, list, textEl, desEl, featureDesEl, badgeTitle, lin
 		case 'theme4':
 			return <>
 				<div className="icon red">
-					{iconEl}
+					{
+						"select" === setIconUpload && <>{iconEl}</>
+					}
+					{
+						"upload" === setIconUpload && <>
+							<img src={uploadIconUrl} alt="" />
+						</>
+					}
 				</div>
 
 				<div className="content">
@@ -75,7 +104,14 @@ const Themes = ({ attributes, list, textEl, desEl, featureDesEl, badgeTitle, lin
 							<div className="icon-wrapper">
 								<div className="icon-pulse"></div>
 								<div className="icon-circle">
-									{theme5IconEl}
+									{
+										"select" === setIconUpload && <>{theme5IconEl}</>
+									}
+									{
+										"upload" === setIconUpload && <>
+											<img src={uploadIconUrl} alt="" />
+										</>
+									}
 								</div>
 							</div>
 						</div>
@@ -88,6 +124,69 @@ const Themes = ({ attributes, list, textEl, desEl, featureDesEl, badgeTitle, lin
 
 						{/* Animated border line */}
 						<div className="animated-border"></div>
+					</div>
+				</div>
+			</>
+
+		case 'theme6':
+			return <>
+				<div className="icon-list-container">
+					<table className="icon-table">
+						<tbody>
+							<tr>
+								<td>
+									<div className="icon-container">
+										{
+											"select" === setIconUpload && <>{theme6IconEl}</>
+										}
+										{
+											"upload" === setIconUpload && <>
+												<img src={uploadIconUrl} alt="" />
+											</>
+										}
+									</div>
+								</td>
+								<td>
+									{theme6DesSl}
+								</td>
+								<td>
+									{
+										isButton && <button className="try-button">{theme6BtnTitle}</button>
+									}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+			</>
+
+		case 'theme7':
+			return <>
+				<div className="glass-card">
+					<div className="glass-content">
+						<div className="icon-sphere">
+							<div className="icon-satellite">
+								{
+									"select" === setIconUpload && <>{theme7IconEl}</>
+								}
+								{
+									"upload" === setIconUpload && <>
+										<img src={uploadIconUrl} alt="" />
+									</>
+								}
+							</div>
+							<div className="orbit">
+								<div className="satellite"></div>
+								<div className="satellite"></div>
+								<div className="satellite"></div>
+							</div>
+						</div>
+						<div className="text-content">
+							{theme5TextSl}
+							{theme5DesSl}
+						</div>
+						<div className="hover-line"></div>
 					</div>
 				</div>
 			</>

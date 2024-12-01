@@ -43,29 +43,18 @@ const Edit = props => {
 
 
 			<div className={`${prefix} ${position}`}>
-				{'default' === theme && <>
-					{isTitle || isDesc ? <div className='header'>
-						{isTitle && <RichText className='title' tagName='h3' value={title} onChange={val => setAttributes({ title: val })} placeholder={__('Title', 'icon-list')} inlineToolbar />}
 
-						{isDesc && <RichText className='description' tagName='p' value={desc} onChange={val => setAttributes({ desc: val })} placeholder={__('Description', 'icon-list')} inlineToolbar />}
+				{isTitle || isDesc ? <div className='header'>
+					{isTitle && <RichText className='title' tagName='h3' value={title} onChange={val => setAttributes({ title: val })} placeholder={__('Title', 'icon-list')} inlineToolbar />}
 
-						{isHeaderSep && <span className='separator' />}
-					</div> : null}
-				</>}
+					{isDesc && <RichText className='description' tagName='p' value={desc} onChange={val => setAttributes({ desc: val })} placeholder={__('Description', 'icon-list')} inlineToolbar />}
 
-				{
-					'theme3' === theme && <>
-						{
-							isTitle && <>
-								<RichText className='featureHeader' tagName='p' value={title} onChange={val => setAttributes({ title: val })} placeholder={__('Feature Title', 'icon-list')} inlineToolbar />
-							</>
-						}
-					</>
-				}
+					{isHeaderSep && <span className='separator' />}
+				</div> : null}
 
 				<ul className={`lists ${theme}`}>
 					{lists?.map((list, index) => {
-						const { text, des, badgeTitle, link } = list;
+						const { text, des, badgeTitle, link, theme6BtnTitle } = list;
 
 						const textEl = <RichText className='text' tagName={'theme2' === theme ? 'h3' : 'p'} value={text} onChange={val => updateList('text', val)} placeholder={__('Text', 'icon-list')} inlineToolbar allowedFormats={['core/bold', 'core/italic', 'core/link']} />
 
@@ -77,9 +66,11 @@ const Edit = props => {
 
 						const theme5DesSl = <RichText className='card-description' tagName='p' value={des} onChange={val => updateList('des', val)} placeholder={__("Type Your Description", "icon-list")} inlineToolbar allowedFormats={['core/semibold', 'core/italic', 'core/link']} />
 
+						const theme6DesSl = <RichText className='theme6Des' tagName='p' value={des} onChange={val => updateList('des', val)} placeholder={__("Type Your Description", "icon-list")} inlineToolbar allowedFormats={['core/semibold', 'core/italic', 'core/link']} />
+
 
 						return <li key={index} className={`list ${index === activeIndex ? 'ilbNowEditing' : ''}`} onClick={() => setActiveIndex(index)}>
-							<Themes {...{ attributes, list, textEl, desEl, featureDesEl, badgeTitle, link, theme5TextSl, theme5DesSl }} />
+							<Themes {...{ attributes, list, textEl, desEl, featureDesEl, badgeTitle, link, theme5TextSl, theme5DesSl, theme6BtnTitle, theme6DesSl }} />
 						</li>
 					})}
 				</ul>

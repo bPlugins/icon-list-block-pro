@@ -16,7 +16,6 @@ $primaryColor: #4527a4;
 	.ilbIconList {
 		max-width: 100%;
 		display: inline-block;
-		width: 600px;
 		background: #0000;
 		padding: 30px 25px;
 		box-shadow: 0px 0px 10px 0px #4527a480;
@@ -96,10 +95,16 @@ $primaryColor: #4527a4;
 			}
 		}
 
+		// Theme: Default Style Here
 		ul.default {
 			list-style-type: none;
 			padding: 0;
 			margin: 0;
+
+			.content {
+				max-width: 90%;
+				padding: 10px;
+			}
 
 			li {
 				display: flex;
@@ -148,6 +153,7 @@ $primaryColor: #4527a4;
 			}
 		}
 
+		// Theme: 2 Style Here
 		ul.theme2 {
 			background: var(--card-background);
 
@@ -196,6 +202,8 @@ $primaryColor: #4527a4;
 					flex: 1;
 					text-align: left;
 					margin-left: 18px;
+					max-width: 90%;
+					padding: 10px;
 				}
 
 				.content h3 {
@@ -216,15 +224,19 @@ $primaryColor: #4527a4;
 			}
 		}
 
+		// Theme: 3 Style Here
 		ul.theme3 {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 30px;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
 
 			.list {
 				padding: 15px 10px;
 				transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 				cursor: pointer;
+				box-sizing: border-box;
+				word-wrap: break-word;
+				white-space: normal;
 
 				.feature-container .feature .icon-wrapper {
 					transition: transform 0.5s ease;
@@ -247,6 +259,8 @@ $primaryColor: #4527a4;
 			}
 		}
 
+		// Theme: 4 Style Here
+
 		ul.theme4 {
 			background: var(--card-background);
 
@@ -267,7 +281,7 @@ $primaryColor: #4527a4;
 				cursor: pointer;
 				transition: background-color 0.2s ease;
 				box-shadow: 0 0px 6px rgba(0.2, 0.2, 0.2, 0.2);
-				// background: #ffffff;
+				position: relative;
 
 				&:last-child {
 					margin-bottom: 0;
@@ -296,6 +310,8 @@ $primaryColor: #4527a4;
 					text-align: left;
 					margin-left: 18px;
 					margin-top: 20px;
+					max-width: 90%;
+					padding: 10px;
 				}
 
 				.content h3 {
@@ -319,23 +335,28 @@ $primaryColor: #4527a4;
 				}
 
 				.badge {
-					margin-top: -38px;
-					margin-right: 39px;
 					padding: 5px 8px;
 					border-radius: 7px;
+					position: absolute;
+					top: 0px;
+					right: 20px;
 				}
 			}
 		}
 
-		// Theme: 5 style here
-
+		// Theme: 5 Style Here
 		ul.theme5 {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
-			gap: 30px;
+			gap: 20px;
 
 			.link {
 				text-decoration: none;
+			}
+
+			.content {
+				max-width: 90%;
+				padding: 10px;
 			}
 
 			.icon-card-wrapper {
@@ -356,12 +377,10 @@ $primaryColor: #4527a4;
 			}
 
 			.bg-element-1 {
-				// background: linear-gradient(to right, rgba(236, 254, 255, 0.5), rgba(239, 246, 255, 0.5));
 				transform: rotate(3deg);
 			}
 
 			.bg-element-2 {
-				// background: linear-gradient(to left, rgba(238, 242, 255, 0.5), rgba(245, 243, 255, 0.5));
 				transform: rotate(-3deg);
 			}
 
@@ -493,8 +512,180 @@ $primaryColor: #4527a4;
 			}
 
 			.icon-card:hover .animated-border {
-				width: 100%;
+				width: 80%;
 			}
+		}
+
+		// Theme: 6 Style Here
+		ul.theme6 {
+			.icon-list-container {
+				width: 100%;
+				margin: 0 auto;
+				background: white;
+				border-radius: 0.5rem;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				overflow: hidden;
+			}
+
+			.icon-table {
+				width: 100%;
+				border-collapse: collapse;
+				text-align: center;
+			}
+
+			.icon-table td {
+				padding: 1rem;
+				border-bottom: 1px solid #e5e7eb;
+			}
+
+			.icon-container {
+				width: 2rem;
+				height: 2rem;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.try-button {
+				padding: 6px 10px;
+				width: 70px;
+				border-radius: 0.375rem;
+				border: none;
+				cursor: pointer;
+				transition: background-color 0.2s;
+			}
+
+			.try-button:hover {
+				background-color: #059669;
+			}
+		}
+
+		// Theme: 7 Style Here
+		ul.theme7 {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 20px;
+
+
+			/* Glass Theme Container */
+			.icon-list-satellite {
+				position: relative;
+			}
+
+			/* Glass Card */
+			.glass-card {
+				position: relative;
+				padding: 1.5rem;
+				border-radius: 1rem;
+				box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+				border: 1px solid rgba(229, 231, 235, 1);
+				transition: all 0.3s ease;
+			}
+
+			/* Icon Sphere */
+			.icon-sphere {
+				position: relative;
+				width: 70px;
+				height: 70px;
+				margin: 0 auto 1.5rem;
+			}
+
+			.theme7Icon {
+				padding: 17px;
+				border-radius: 50%;
+			}
+
+			@keyframes rotateGradient {
+				0% {
+					transform: rotate(0deg);
+				}
+
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			.icon-satellite {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 2;
+			}
+
+			.glass-card:hover .feature-icon {
+				transform: scale(1.1);
+			}
+
+			/* Orbiting Satellites */
+			.orbit {
+				position: absolute;
+				inset: -15px;
+				border-radius: 50%;
+				animation: orbitRotate 12s linear infinite;
+			}
+
+			@keyframes orbitRotate {
+				0% {
+					transform: rotate(0deg);
+				}
+
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+
+			.satellite {
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				border-radius: 50%;
+				box-shadow: 0 0 10px rgba(255, 255, 255, 4.5);
+			}
+
+			.satellite:nth-child(1) {
+				top: 0;
+				left: 50%;
+			}
+
+			.satellite:nth-child(2) {
+				bottom: 25%;
+				right: 0;
+			}
+
+			.satellite:nth-child(3) {
+				bottom: 25%;
+				left: 0;
+			}
+
+			/* Text Content */
+			.text-content {
+				position: relative;
+				z-index: 2;
+				text-align: center;
+			}
+
+
+			/* Hover Line */
+			.hover-line {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				width: 0;
+				height: 2px;
+				background: linear-gradient(to right,
+						rgba(147, 51, 234, 0.5),
+						rgba(79, 70, 229, 0.5));
+				transform: translateX(-50%);
+				transition: width 0.4s ease;
+			}
+
+			.glass-card:hover .hover-line {
+				width: 80%;
+			}
+
 		}
 	}
 }
