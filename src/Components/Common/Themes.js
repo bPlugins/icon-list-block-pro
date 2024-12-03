@@ -193,7 +193,18 @@ const Themes = ({ attributes, list, textEl, desEl, featureDesEl, badgeTitle, lin
 
 		default:
 			return <>
-				{iconEl}
+
+				{
+					"select" === setIconUpload && <>
+						{iconEl}
+					</>
+				}
+
+				{
+					"upload" === setIconUpload && <>
+						<img src={uploadIconUrl} alt="" />
+					</>
+				}
 
 				{textEl}
 			</>

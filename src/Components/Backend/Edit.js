@@ -17,7 +17,6 @@ const Edit = props => {
 	const { isPremium } = usePremiumInEditor('ilbUtils', 'ilbPipeChecker');
 
 
-
 	useEffect(() => tabController(), [isSelected]);
 
 	const [activeIndex, setActiveIndex] = useState(0);

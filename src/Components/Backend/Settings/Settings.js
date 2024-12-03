@@ -1,10 +1,11 @@
 import { __ } from '@wordpress/i18n';
 import { InspectorControls, BlockControls, AlignmentToolbar } from '@wordpress/block-editor';
-import { PanelBody, PanelRow, TabPanel, RangeControl, TextControl, ToggleControl, __experimentalUnitControl as UnitControl, Button, Dashicon, SelectControl } from '@wordpress/components';
+import { PanelBody, PanelRow, TabPanel, RangeControl, TextControl, ToggleControl, __experimentalUnitControl as UnitControl, Button, Dashicon } from '@wordpress/components';
+import { withSelect } from '@wordpress/data';
 import { useState } from "react";
 
 // Settings Components
-import { Label, Background, ColorControl, ColorsControl, HelpPanel, IconControl, SeparatorControl, Typography, InlineMediaUpload } from '../../../../../bpl-tools/Components';
+import { Label, Background, ColorControl, ColorsControl, HelpPanel, IconControl, SeparatorControl, Typography, InlineMediaUpload, Device } from '../../../../../bpl-tools/Components';
 import { BorderControl, ShadowControl, SpaceControl } from '../../../../../bpl-tools/Components/Deprecated';
 import { gearIcon } from '../../../../../bpl-tools/utils/icons';
 import { pxUnit, perUnit, emUnit } from '../../../../../bpl-tools/utils/options';
@@ -13,8 +14,8 @@ import { AboutProModal, BControlPro, SelectControlPro } from '../../../../../bpl
 import { generalStyleTabs } from '../../../utils/options';
 import { produce } from 'immer';
 
-const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiveIndex, isPremium }) => {
-	const { isTitle, isDesc, lists, isListLinkInNewTab, alignment, width, background, padding, border, shadow, position, headerMargin, titleColor, descTypo, descColor, isHeaderSep, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, themes, descriptionTypo, descriptionColor, themeOptions, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton } = attributes;
+const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiveIndex, isPremium, device }) => {
+	const { isTitle, isDesc, lists, isListLinkInNewTab, alignment, width, background, padding, border, shadow, position, headerMargin, titleColor, descTypo, descColor, isHeaderSep, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, themes, descriptionTypo, descriptionColor, themeOptions, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton, columns, columnGap, rowGap, } = attributes;
 
 	const { rightIconColor, isBadge, isUrlIcon, isButton, isMaxWidth } = themeOptions;
 	const { featureIconSize } = featureThemeStyles;
@@ -166,23 +167,7 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 					</PanelBody>
 
 					<PanelBody className='bplPanelBody' title={__('Themes', 'icon-list')} initialOpen={false}>
-						{/* <SelectControlPro
-							label={__("Select Theme:", "icon-list")}
-							labelPosition='left'
-							value={themes.theme} // This sets the initial value
-							options={[
-								{ label: 'Default', value: 'default' },
-								{ label: 'Theme 2', value: 'theme2' },
-								{ label: 'Theme 3', value: 'theme3' },
-								{ label: 'Theme 4', value: 'theme4' },
-								{ label: 'Theme 5', value: 'theme5' },
-							]}
-							onChange={(selectedTheme) => setAttributes({ themes: { ...themes, theme: selectedTheme } })}
-							{...premiumProps}
-							proValues={['theme2', 'theme3', 'theme4', 'theme5']}
-						/> */}
-
-						<SelectControl
+						<SelectControlPro
 							label={__("Select Theme:", "icon-list")}
 							labelPosition='left'
 							value={themes.theme} // This sets the initial value
@@ -196,7 +181,25 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 								{ label: 'Theme 7', value: 'theme7' }
 							]}
 							onChange={(selectedTheme) => setAttributes({ themes: { ...themes, theme: selectedTheme } })}
+							{...premiumProps}
+							proValues={['theme2', 'theme3', 'theme4', 'theme5', 'theme6', 'theme7']}
 						/>
+
+						{/* <SelectControl
+							label={__("Select Theme:", "icon-list")}
+							labelPosition='left'
+							value={themes.theme} // This sets the initial value
+							options={[
+								{ label: 'Default', value: 'default' },
+								{ label: 'Theme 2', value: 'theme2' },
+								{ label: 'Theme 3', value: 'theme3' },
+								{ label: 'Theme 4', value: 'theme4' },
+								{ label: 'Theme 5', value: 'theme5' },
+								{ label: 'Theme 6', value: 'theme6' },
+								{ label: 'Theme 7', value: 'theme7' }
+							]}
+							onChange={(selectedTheme) => setAttributes({ themes: { ...themes, theme: selectedTheme } })}
+						/> */}
 					</PanelBody>
 
 
@@ -320,6 +323,52 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 
 					<PanelBody className='bPlPanelBody' title={__('List', 'icon-list')} initialOpen={false}>
 
+						{/* Grid template Column styles setting */}
+						{
+							("theme3" === theme || "theme5" === theme || "theme7" === theme) && <>
+								<PanelRow className='mt20'>
+									<Label className='mb5'>{__('Columns:', 'icon-list')}</Label>
+									<Device />
+								</PanelRow>
+								<BControlPro
+									value={columns[device]}
+									onChange={val => { setAttributes({ columns: { ...columns, [device]: val } }) }}
+									min={1}
+									max={6}
+									step={1}
+									beforeIcon='grid-view'
+									Component={RangeControl}
+									{...premiumProps}
+								/>
+
+								<Label>{__('column Gap:', 'icon-list')}</Label>
+								<BControlPro
+									value={columnGap}
+									onChange={val => setAttributes({ columnGap: val })}
+									min={0}
+									max={100}
+									step={1}
+									beforeIcon='arrow-right-alt'
+									Component={RangeControl}
+									{...premiumProps}
+								/>
+
+								<Label>{__('Row Gap:', 'advanced-post-block')}</Label>
+								<BControlPro
+									value={rowGap}
+									onChange={val => setAttributes({ rowGap: val })}
+									min={0}
+									max={150}
+									step={1}
+									beforeIcon='arrow-down-alt'
+									Component={RangeControl}
+									{...premiumProps}
+								/>
+							</>
+						}
+
+
+
 						{/* Premium Background for All List item Background */}
 						<BControlPro
 							className='mt10'
@@ -337,7 +386,11 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 								<Label>{__('Icon Size:', 'icon-list')}</Label>
 								<RangeControl value={listIconSize} onChange={val => setAttributes({ listIconSize: val })} min={0} max={120} step={1} allowReset={true} resetFallbackValue={20} initialPosition={20} />
 
-								<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
+								{
+									"select" === setIconUpload && <>
+										<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
+									</>
+								}
 							</>
 						}
 
@@ -413,7 +466,11 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 									setAttributes({ featureThemeStyles: newSize })
 								}} min={0} max={120} step={1} allowReset={true} resetFallbackValue={28} initialPosition={28} />
 
-								<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
+								{
+									"select" === setIconUpload && <>
+										<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
+									</>
+								}
 
 								<Typography label={__('Description Typography:', 'icon-list')} value={listTextTypo} onChange={val => setAttributes({ listTextTypo: val })} defaults={{ fontSize: { desktop: 18, tablet: 15, mobile: 15 }, fontWeight: 500 }} />
 
@@ -447,7 +504,11 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 									/>
 								}
 
-								<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
+								{
+									"select" === setIconUpload && <>
+										<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
+									</>
+								}
 
 
 								<Typography label={__('Title Typography:', 'icon-list')} value={listTextTypo} onChange={val => setAttributes({ listTextTypo: val })} defaults={{ fontSize: { desktop: 18, tablet: 15, mobile: 15 }, fontWeight: 500 }} />
@@ -502,7 +563,11 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 							"theme6" === theme && <>
 								<ColorsControl label={__('Button Colors', 'icon-list')} value={theme6Styles} onChange={val => setAttributes({ theme6Styles: val })} defaults={{ color: '#fff', bg: '#059669' }} />
 
-								<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#0000' }} />
+								{
+									"select" === setIconUpload && <>
+										<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#0000' }} />
+									</>
+								}
 
 								<Typography
 									label={__('ButtonTypography:', 'icon-list')}
@@ -542,4 +607,13 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 		</AboutProModal>
 	</>;
 };
-export default Settings;
+
+
+
+export default withSelect((select) => {
+	const { getDeviceType } = select('core/editor');
+
+	return {
+		device: getDeviceType()?.toLowerCase(),
+	}
+})(Settings);

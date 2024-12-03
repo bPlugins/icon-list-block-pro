@@ -48,7 +48,7 @@
 					"link": "",
 					"badgeTitle": "Popular",
 					"theme6BtnTitle": "action",
-					"uploadIconUrl": "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
+					"uploadIconUrl": "http://localhost/wordpress1/wp-content/uploads/2024/03/facebook.png"
 				},
 				{
 					"icon": {
@@ -72,7 +72,7 @@
 					"link": "",
 					"badgeTitle": "Popular",
 					"theme6BtnTitle": "action",
-					"uploadIconUrl": "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
+					"uploadIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"
 				},
 				{
 					"icon": {
@@ -84,7 +84,7 @@
 					"link": "",
 					"badgeTitle": "Popular",
 					"theme6BtnTitle": "action",
-					"uploadIconUrl": "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
+					"uploadIconUrl": "https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"
 				}
 			]
 		},
@@ -199,6 +199,22 @@
 			"default": {
 				"setIconUpload": "select"
 			}
+		},
+		"columns": {
+			"type": "object",
+			"default": {
+				"desktop": 3,
+				"tablet": 2,
+				"mobile": 1
+			}
+		},
+		"columnGap": {
+			"type": "number",
+			"default": 15
+		},
+		"rowGap": {
+			"type": "number",
+			"default": 15
 		},
 		"headerSep": {
 			"type": "object",
