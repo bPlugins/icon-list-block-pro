@@ -64,6 +64,18 @@ export const proFeatures = [
 		name: "Icon Puls Blur Background",
 		description:
 			"Adjust the blur effect of the pulse background to create a soft, visually appealing design."
+	},
+	{
+		name: "Custom Upload images",
+		description: "Upload and use custom images to personalize your list items and make your content stand out."
+	},
+	{
+		name: "Custom Set Grid for themes",
+		description: "Customize grid layouts for themes to organize and display your list items with precision and style."
+	},
+	{
+		name: "Add Grid Styles",
+		description: "Choose from a variety of grid styles to create visually appealing and organized layouts for your list items."
 	}
 ];
 
