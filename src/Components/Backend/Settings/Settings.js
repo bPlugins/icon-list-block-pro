@@ -9,7 +9,7 @@ import { Label, Background, ColorControl, ColorsControl, HelpPanel, IconControl,
 import { BorderControl, ShadowControl, SpaceControl } from '../../../../../bpl-tools/Components/Deprecated';
 import { gearIcon } from '../../../../../bpl-tools/utils/icons';
 import { pxUnit, perUnit, emUnit } from '../../../../../bpl-tools/utils/options';
-import { AboutProModal, BControlPro, SelectControlPro } from '../../../../../bpl-tools/ProControls';
+import { AboutProModal, BControlPro, BtnGroupPro, SelectControlPro } from '../../../../../bpl-tools/ProControls';
 
 import { generalStyleTabs } from '../../../utils/options';
 import { produce } from 'immer';
@@ -84,23 +84,18 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 						{null !== activeIndex && <>
 							<h3 className='bplItemTitle'>{__(`List item ${activeIndex + 1}:`, 'icon-list')}</h3>
 
-							<div className="startPosition">
-								<h2>List Icon Insert System</h2>
-								<div className="position-buttons" style={{ display: 'flex' }}>
-									<button
-										className={`position-button ${iconUploadButton.setIconUpload === 'select' ? 'active' : ''}`}
-										onClick={() => setAttributes({ iconUploadButton: { ...iconUploadButton, setIconUpload: 'select' } })}
-									>
-										Select Icon
-									</button>
-									<button
-										className={`position-button ${iconUploadButton.setIconUpload === 'upload' ? 'active' : ''}`}
-										onClick={() => setAttributes({ iconUploadButton: { ...iconUploadButton, setIconUpload: 'upload' } })}
-									>
-										Upload Icon
-									</button>
-								</div>
-							</div>
+							<Label>{__('Icon Type')}</Label>
+							<BtnGroupPro
+								className="iconType"
+								value={setIconUpload}
+								onChange={val => setAttributes({ iconUploadButton: { ...iconUploadButton, setIconUpload: val } })}
+								options={[
+									{ label: 'Select Icon', value: 'select' },
+									{ label: 'Upload Icon', value: 'upload' }
+								]}
+								proValues={['upload']}
+								{...premiumProps}
+							/>
 
 							{
 								"upload" === setIconUpload && <>
@@ -186,22 +181,6 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 							{...premiumProps}
 							proValues={['theme2', 'theme3', 'theme4', 'theme5', 'theme6', 'theme7']}
 						/>
-
-						{/* <SelectControl
-							label={__("Select Theme:", "icon-list")}
-							labelPosition='left'
-							value={themes.theme} // This sets the initial value
-							options={[
-								{ label: 'Default', value: 'default' },
-								{ label: 'Theme 2', value: 'theme2' },
-								{ label: 'Theme 3', value: 'theme3' },
-								{ label: 'Theme 4', value: 'theme4' },
-								{ label: 'Theme 5', value: 'theme5' },
-								{ label: 'Theme 6', value: 'theme6' },
-								{ label: 'Theme 7', value: 'theme7' }
-							]}
-							onChange={(selectedTheme) => setAttributes({ themes: { ...themes, theme: selectedTheme } })}
-						/> */}
 					</PanelBody>
 
 
