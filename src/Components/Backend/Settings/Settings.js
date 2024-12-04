@@ -99,7 +99,7 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 
 							{
 								"upload" === setIconUpload && <>
-									<BControlPro
+									<InlineMediaUpload
 										label={__("Upload Image URL", "icon-list")}
 										value={uploadIconUrl}
 										onChange={val => {
@@ -108,8 +108,6 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 											})
 											setAttributes({ lists: newUploadIcon })
 										}}
-										Component={InlineMediaUpload}
-										{...premiumProps}
 									/>
 								</>
 							}
