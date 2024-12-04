@@ -4,6 +4,7 @@ import Changelog from './Pages/Changelog';
 import Dashboard from './Pages/Dashboard';
 import GeneralSettings from './Pages/GeneralSettings';
 import { Toaster } from 'react-hot-toast';
+import Demo from './Pages/Demo';
 
 
 
@@ -14,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/changelog" element={<Changelog />} />
+        <Route path="/demo" element={<Demo />} />
         <Route path="/settings" element={<GeneralSettings />} />
         <Route path="/block-settings" element={<BlockSettings />} />
 

@@ -1,5 +1,5 @@
 === Icon List Block - Use icons instead of bullets in the list. ===
-Contributors: bplugins, abuhayat, charlescormier
+Contributors: bplugins, abuhayat, charlescormier, noornabi2 
 Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, icon list, bullet list, menu icon, list icon
 Requires at least: 6.5+
@@ -23,10 +23,13 @@ Create a list with an icon with this block plugin. If you want to make a list wi
 - **Comprehensive Customization Options**: Arrange your showcase effortlessly with a wide range of settings tailored to your preferences.
 - **Advanced Controls**: Includes extensive controls for link management, rotation, alignment, colors, borders, padding, margins, and more.
 - **Custom Icon Selection**: Choose your preferred icons to enhance each list item with a personalized touch.
+- **Custom Upload images**: Upload and use custom images to personalize your list items and make your content stand out.
 - **Badge Title Configuration**: Assign specific titles to list item badges for added context and detail.
 - **Unlimited List Items**: Add as many list items as you need, complete with customizable bullet points.
 - **URL-Specific List Items**: Define URLs for individual list items to make them interactive and functional.
 - **Theme Customization**: Select from various themes to match your design preferences.
+- **Custom Set Grid for themes**: Customize grid layouts for themes to organize and display your list items with precision and style.
+- **Add Grid Styles**: Choose from a variety of grid styles to create visually appealing and organized layouts for your list items.
 - **Full Site Editor Compatibility**: Works perfectly with the Site Editor for a smooth editing experience.
 - **No Block Library Dependency**: Operates independently without requiring any additional block libraries. 🎉
 

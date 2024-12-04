@@ -59,7 +59,7 @@ if (function_exists('ilb_fs')) {
                     'public_key'          => 'pk_51f816736288458da2dd37c719fd3',
                     'is_premium'          => true,
                     'premium_suffix'      => 'Pro',
-                    // If your plugin is a serviceware, set this option to false.
+                    // If your plugin is a service ware, set this option to false.
                     'has_premium_version' => true,
                     'has_addons'          => false,
                     'has_paid_plans'      => true,
@@ -139,8 +139,6 @@ if (function_exists('ilb_fs')) {
                     'sanitize_callback' => 'sanitize_text_field'
                 ]);
             }
-
-
 
             function enqueueBlockAssets()
             {

@@ -14,6 +14,8 @@ const Dashboard = () => {
               <p className="section-description">
                 Expand your plugin with some awesome some premium features that will give you a better experience.
               </p>
+
+              {/* Premium Feature List */}
               <div className="feature-list">
                 {proFeatures.map((feature) => (
                   <div key={feature.name} className="feature-item">

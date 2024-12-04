@@ -606,6 +606,9 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 			<li>&emsp;<strong>{__('Badge Text Color & Background: ', 'icon-list')}</strong>{__('Set the color and background for the badge text to ensure it stands out and complements your design.', 'icon-list')}</li>
 			<li>&emsp;<strong>{__('Icon Animated Puls Color: ', 'icon-list')}</strong>{__('Choose a color for the animated pulse effect to draw attention and enhance visual engagement.', 'icon-list')}</li>
 			<li>&emsp;<strong>{__('Icon Puls Blur Background: ', 'icon-list')}</strong>{__('Adjust the blur effect of the pulse background to create a soft, visually appealing design.', 'icon-list')}</li>
+			<li>&emsp;<strong>{__('Custom Upload images: ', 'icon-list')}</strong>{__('Upload and use custom images to personalize your list items and make your content stand out.', 'icon-list')}</li>
+			<li>&emsp;<strong>{__('Custom Set Grid for themes: ', 'icon-list')}</strong>{__('Customize grid layouts for themes to organize and display your list items with precision and style.', 'icon-list')}</li>
+			<li>&emsp;<strong>{__('Add Grid Styles: ', 'icon-list')}</strong>{__('Choose from a variety of grid styles to create visually appealing and organized layouts for your list items.', 'icon-list')}</li>
 		</AboutProModal>
 	</>;
 };

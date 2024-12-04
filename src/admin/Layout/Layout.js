@@ -8,6 +8,7 @@ const Layout = ({ children }) => {
   const navigation = [
     { name: 'Dashboard', href: '/dashboard' },
     { name: 'Changelog', href: '/changelog' },
+    { name: 'Demo', href: '/demo' }
   ]
 
   const secondaryNav = [
