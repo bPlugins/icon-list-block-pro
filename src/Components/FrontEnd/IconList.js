@@ -15,15 +15,6 @@ const IconList = ({ attributes }) => {
 				{isHeaderSep && <span className='separator' />}
 			</div> : null}
 
-
-			{
-				'theme3' === theme && <>
-					{
-						isTitle && <p className='featureHeader' dangerouslySetInnerHTML={{ __html: title }} />
-					}
-				</>
-			}
-
 			<ul className={`lists ${theme}`}>
 				{lists?.map((list, index) => {
 					const { text, link, des, badgeTitle, theme6BtnTitle } = list;

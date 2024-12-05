@@ -5,5 +5,8 @@ import AppContainer from './Index';
 
 document.addEventListener('DOMContentLoaded', () => {
   const helpEl = document.getElementById('bplAdminHelpPage');
-  createRoot(helpEl).render(<AppContainer />);
+  const renderEl = helpEl.querySelector('.renderHere');
+
+
+  createRoot(renderEl).render(<AppContainer mainEl={helpEl} />);
 });

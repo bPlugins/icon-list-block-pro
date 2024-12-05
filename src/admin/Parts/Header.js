@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
 import '../help.scss';
 
-const Header = ({ navigation, secondaryNav }) => {
+const Header = ({ navigation }) => {
 
   return (
     <div className="dashboard-heading-container">
@@ -39,18 +39,6 @@ const Header = ({ navigation, secondaryNav }) => {
               )
             })
           }
-        </div>
-        <div className='secondLinksDiv'>
-          {secondaryNav.map((item) => (
-            <NavLink
-              key={item.name}
-              to={item.href}
-              className="secondLinks"
-            >
-              {item.icon}
-              {item.name}
-            </NavLink>
-          ))}
         </div>
       </div>
     </div>

@@ -7,6 +7,10 @@
     margin: 0 auto;
     margin-top: -15px;
 
+    .features {
+      box-sizing: border-box;
+    }
+
     .dashboard-heading-container {
       width: 100%;
       background-color: white;
@@ -22,6 +26,7 @@
         padding-bottom: 14px;
         width: 1090px;
         margin: 0 auto;
+        box-sizing: border-box;
 
         .heading {
           display: flex;
@@ -116,12 +121,32 @@
       }
     }
 
+    // Demo CSS 
+    .icon-demo-section {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 55px;
+
+      h2 {
+        font-size: 25px;
+        font-weight: 800;
+        margin-bottom: 40px;
+      }
+
+      .icon-demo-container {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+      }
+    }
+
     // Feature CSS
     .feature-section {
       background-color: white;
       border-radius: 0.5rem;
       width: 1090px;
       margin: 40px auto;
+      text-align: center;
 
       .feature-container {
         margin: 0 auto;
@@ -147,15 +172,16 @@
           margin-top: 0.5rem;
           font-size: 2.25rem;
           font-weight: 700;
-          line-height: 2.5rem;
+          line-height: 2rem;
           color: #1a202c;
         }
 
         .section-description {
           margin-top: 1rem;
           font-size: 1.125rem;
-          line-height: 2rem;
+          line-height: 1rem;
           color: #4a5568;
+          text-align: center;
         }
       }
 
@@ -164,6 +190,7 @@
         display: grid;
         gap: 4rem;
         grid-template-columns: repeat(3, 1fr);
+        padding: 15px;
 
         .feature-item {
           .feature-name {
@@ -190,27 +217,13 @@
       }
     }
 
-    // Changelog CSS
-    .changelog-container {
-      width: 1090px;
-      margin: 40px auto;
-
-      .latest-ver {
-        background: white;
-        border-radius: 6px;
-        padding: 20px;
-      }
-    }
-
-    .demo-section {
+    // Support CSS 
+    .support-section {
       background-color: white;
       border-radius: 0.5rem;
       width: 1090px;
       margin: 40px auto;
-
-      .demo-container {
-        padding: 20px;
-      }
+      text-align: center;
     }
 
     .general-settings-container,

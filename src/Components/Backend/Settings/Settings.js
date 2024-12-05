@@ -17,7 +17,7 @@ import { produce } from 'immer';
 const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiveIndex, isPremium, device }) => {
 	const { isTitle, isDesc, lists, isListLinkInNewTab, alignment, width, background, padding, border, shadow, position, headerMargin, titleColor, descTypo, descColor, isHeaderSep, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, themes, descriptionTypo, descriptionColor, themeOptions, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton, columns, columnGap, rowGap, } = attributes;
 
-	const { rightIconColor, isBadge, isUrlIcon, isButton, isMaxWidth } = themeOptions;
+	const { rightIconColor, isBadge, isUrlIcon, isButton } = themeOptions;
 	const { featureIconSize } = featureThemeStyles;
 	const { iconPulsColor, iconBgBlur } = theme5Styles;
 	const { animateColor } = singleIconColor;
@@ -175,7 +175,7 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 								{ label: 'Theme 6', value: 'theme6' },
 								{ label: 'Theme 7', value: 'theme7' }
 							]}
-							onChange={(selectedTheme) => setAttributes({ themes: { ...themes, theme: selectedTheme } })}
+							onChange={(val) => setAttributes({ themes: { ...themes, theme: val } })}
 							{...premiumProps}
 							proValues={['theme2', 'theme3', 'theme4', 'theme5', 'theme6', 'theme7']}
 						/>
@@ -241,31 +241,11 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 					</PanelBody>
 				</>}
 
-
 				{'style' === tab.name && <>
 					<PanelBody className='bPlPanelBody' title={__('Card', 'icon-list')}>
 
-						{
-							isMaxWidth && <>
-								<UnitControl label={__('Width:', 'icon-list')} labelPosition='left' value={width} onChange={val => setAttributes({ width: val })} units={[pxUnit(), perUnit(), emUnit()]} />
-								<small>{__('Keep width set your align wide', 'icon-list')}</small>
-							</>
-						}
-
-						<ToggleControl className='mt10'
-							label={__('Show Max Width:', 'icon-list')}
-							checked={isMaxWidth}
-							onChange={val => {
-								const newVal = produce(themeOptions, draft => {
-									draft.isMaxWidth = val
-								})
-								setAttributes({ themeOptions: newVal })
-							}}
-						/>
-
-						{
-							isMaxWidth === false && <small style={{ fontWeight: "bold" }} className='mt5'>{__('Now your width 100% auto', 'icon-list')}</small>
-						}
+						<UnitControl label={__('Width:', 'icon-list')} labelPosition='left' value={width} onChange={val => setAttributes({ width: val })} units={[pxUnit(), perUnit(), emUnit()]} />
+						<small>{__('Keep width set your align wide', 'icon-list')}</small>
 
 						<Background className='mt20' label={__('Background:', 'icon-list')} value={background} onChange={val => setAttributes({ background: val })} defaults={{ color: '#0000' }} />
 

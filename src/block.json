@@ -203,7 +203,7 @@
 		"columns": {
 			"type": "object",
 			"default": {
-				"desktop": 3,
+				"desktop": 2,
 				"tablet": 2,
 				"mobile": 1
 			}

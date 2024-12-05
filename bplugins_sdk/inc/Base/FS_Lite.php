@@ -2,7 +2,7 @@
 class FS_Lite{
 
     protected $prefix = '';
-    protected $config = '';
+    protected $config = null;
     protected $base_name = null;
     protected $plugin_name = '';
     protected $product = "";
@@ -34,13 +34,14 @@ class FS_Lite{
 
         add_action('init', [$this, 'init']);
     }
-    
+
     function init(){
         $plugin_data = \get_plugin_data( $this->__FILE__ );
         $this->plugin_name = $plugin_data['Name'];
+
         $this->version = isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] === 'localhost' ? time() :  $plugin_data['Version'];
     }
-
+    
     function get_anonymous_id( $blog_id = null ) {
         $unique_id = get_option( 'unique_id', null, $blog_id );
 

@@ -1,23 +1,17 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import BlockSettings from './Pages/BlockSettings';
-import Changelog from './Pages/Changelog';
 import Dashboard from './Pages/Dashboard';
-import GeneralSettings from './Pages/GeneralSettings';
 import { Toaster } from 'react-hot-toast';
-import Demo from './Pages/Demo';
+import Support from './Pages/Support';
 
 
 
-const App = () => {
+const App = ({ mainEl }) => {
   return (
     <>.
       <Toaster position="bottom-center" />
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/changelog" element={<Changelog />} />
-        <Route path="/demo" element={<Demo />} />
-        <Route path="/settings" element={<GeneralSettings />} />
-        <Route path="/block-settings" element={<BlockSettings />} />
+        <Route path="/dashboard" element={<Dashboard mainEl={mainEl} />} />
+        <Route path="/support" element={<Support />} />
 
         {/* When no routes match, it will redirect to this route path. Note that it should be registered above. */}
         <Route

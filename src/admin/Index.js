@@ -6,10 +6,10 @@ import { HashRouter } from 'react-router-dom';
  */
 import App from './App';
 
-const AppContainer = () => {
+const AppContainer = ({ mainEl }) => {
   return (
     <HashRouter>
-      <App />
+      <App mainEl={mainEl} />
     </HashRouter>
   );
 }

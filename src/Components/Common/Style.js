@@ -3,12 +3,11 @@ import { getBackgroundCSS, getBorderCSS, getColorsCSS, getSeparatorCSS, getShado
 import { prefix } from '../../utils/data';
 
 const Style = ({ attributes, id }) => {
-	const { alignment, width, background, padding, border, shadow, headerMargin, titleTypo, titleColor, descTypo, descColor, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, descriptionColor, descriptionTypo, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, themeOptions, iconUploadButton, columns, columnGap, rowGap } = attributes;
+	const { alignment, width, background, padding, border, shadow, headerMargin, titleTypo, titleColor, descTypo, descColor, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, descriptionColor, descriptionTypo, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton, columns, columnGap, rowGap } = attributes;
 
 	const { featureIconSize } = featureThemeStyles;
 	const { iconPulsColor, iconBgBlur } = theme5Styles;
 	const { animateColor } = singleIconColor;
-	const { isMaxWidth } = themeOptions;
 	const { setIconUpload } = iconUploadButton;
 
 	const mainSl = `#${id}`;
@@ -62,7 +61,6 @@ const Style = ({ attributes, id }) => {
 
 	const iconSize = 30 < listIconSize ? listIconSize + listIconSize / 2 : listIconSize + listIconSize / 1.5;
 
-	// ${['0px', '0%', '0em'].includes(width) ? 'auto' : width};
 
 	return <style dangerouslySetInnerHTML={{
 		__html: `
@@ -125,7 +123,7 @@ const Style = ({ attributes, id }) => {
 			text-align: ${alignment};
 		}
 		${iconListSl}{
-			width: ${isMaxWidth ? width : '100%'};
+			width: ${['0px', '0%', '0em'].includes(width) ? 'auto' : width};
 			${getBackgroundCSS(background)}
 			padding: ${getSpaceCSS(padding)};
 			${getBorderCSS(border)}

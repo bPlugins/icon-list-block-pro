@@ -69,6 +69,7 @@ if (function_exists('ilb_fs')) {
                     ),
                     'menu'                => array(
                         'slug'           => 'icon-list',
+                        'first-path'           => 'tools.php?page=icon-list#/dashboard',
                         'support'        => false,
                         'parent'         => array(
                             'slug' => 'tools.php',
@@ -162,18 +163,51 @@ if (function_exists('ilb_fs')) {
                 );
             }
 
-            function renderToolsPage()
-            {
-?>
-                <div id="bplAdminHelpPage"></div>
-<?php
+            function renderTemplate( $content ){
+                $parseBlocks = parse_blocks( $content );
+                return render_block( $parseBlocks[0] );
             }
+
+            function renderToolsPage()
+            { ?>
+                <div id="bplAdminHelpPage">
+                    <div class='renderHere'>
+
+                    </div>
+                    <div class="templates" style='display: none;'>
+                        <div class="default">
+                            <?php echo $this->renderTemplate( '<!-- wp:ilb/icon-list /-->' ); ?>
+                        </div>
+                        <div class="theme2">
+                            <?php echo $this->renderTemplate( '<!-- wp:ilb/icon-list {"lists":[{"icon":{"class":"fa-solid fa-star"},"text":"List items with a star","des":"Type your description here","featureDes":"Feature with star","link":"dfdff","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"http://localhost/wordpress1/wp-content/uploads/2024/03/facebook.png"},{"icon":{"class":"fa-solid fa-check-circle"},"text":"List items with circle","des":"Type your description here","featureDes":"Feature with circle check","link":"dfdf","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"},{"icon":{"class":"fa-solid fa-check-square"},"text":"List items with check","des":"Type your description here","featureDes":"Feature with square check","link":"fdfd","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"},{"icon":{"class":"fa-solid fa-heart"},"text":"List items with heart","des":"Type your description here","featureDes":"Feature with star","link":"dfdff","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"}],"themeOptions":{"rightIconColor":"#4527A4","isBadge":true,"isUrlIcon":true,"isButton":true,"isMaxWidth":true},"columns":{"desktop":2,"tablet":2,"mobile":1},"themes":{"theme":"theme2"}} /-->' ); ?>
+                        </div>
+                        <div class="theme3">
+                            <?php echo $this->renderTemplate( '<!-- wp:ilb/icon-list {"lists":[{"icon":{"class":"fa-solid fa-star"},"text":"List items with a star","des":"Type your description here","featureDes":"Feature with star","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"http://localhost/wordpress1/wp-content/uploads/2024/03/facebook.png"},{"icon":{"class":"fa-solid fa-check-circle"},"text":"List items with circle","des":"Type your description here","featureDes":"Feature with circle check","link":"dfdf","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"},{"icon":{"class":"fa-solid fa-check-square"},"text":"List items with check","des":"Type your description here","featureDes":"Feature with square check","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"},{"icon":{"class":"fa-solid fa-heart"},"text":"List items with heart","des":"Type your description here","featureDes":"Feature with star","link":"dfdff","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"}],"columns":{"desktop":2,"tablet":2,"mobile":1},"themes":{"theme":"theme3"}} /-->' ); ?>
+                        </div>
+                        <div class="theme4">
+                            <?php echo $this->renderTemplate( '<!-- wp:ilb/icon-list {"lists":[{"icon":{"class":"fa-solid fa-star"},"text":"List items with a star","des":"Type your description here","featureDes":"Feature with star","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"http://localhost/wordpress1/wp-content/uploads/2024/03/facebook.png"},{"icon":{"class":"fa-solid fa-check-circle"},"text":"List items with circle","des":"Type your description here","featureDes":"Feature with circle check","link":"dfdf","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"},{"icon":{"class":"fa-solid fa-check-square"},"text":"List items with check","des":"Type your description here","featureDes":"Feature with square check","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"},{"icon":{"class":"fa-solid fa-heart"},"text":"List items with heart","des":"Type your description here","featureDes":"Feature with star","link":"dfdff","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"}],"columns":{"desktop":2,"tablet":2,"mobile":1},"themes":{"theme":"theme4"}} /-->' ); ?>
+                        </div>
+                        <div class="theme5">
+                            <?php echo $this->renderTemplate( '<!-- wp:ilb/icon-list {"lists":[{"icon":{"class":"fa-solid fa-star"},"text":"List items with a star","des":"Type your description here","featureDes":"Feature with star","link":"dfdff","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"http://localhost/wordpress1/wp-content/uploads/2024/03/facebook.png"},{"icon":{"class":"fa-solid fa-check-circle"},"text":"List items with circle","des":"Type your description here","featureDes":"Feature with circle check","link":"dfdf","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"},{"icon":{"class":"fa-solid fa-check-square"},"text":"List items with check","des":"Type your description here","featureDes":"Feature with square check","link":"fdfd","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"},{"icon":{"class":"fa-solid fa-heart"},"text":"List items with heart","des":"Type your description here","featureDes":"Feature with star","link":"dfdff","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"}],"themeOptions":{"rightIconColor":"#4527A4","isBadge":true,"isUrlIcon":true,"isButton":true,"isMaxWidth":true},"columns":{"desktop":2,"tablet":2,"mobile":1},"themes":{"theme":"theme5"}} /-->' ); ?>
+                        </div>
+                        <div class="theme6">
+                            <?php echo $this->renderTemplate( '<!-- wp:ilb/icon-list {"lists":[{"icon":{"class":"fa-solid fa-star"},"text":"List items with a star","des":"Type your description here","featureDes":"Feature with star","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"http://localhost/wordpress1/wp-content/uploads/2024/03/facebook.png"},{"icon":{"class":"fa-solid fa-check-circle"},"text":"List items with circle","des":"Type your description here","featureDes":"Feature with circle check","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"},{"icon":{"class":"fa-solid fa-check-square"},"text":"List items with check","des":"Type your description here","featureDes":"Feature with square check","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"},{"icon":{"class":"fa-solid fa-heart"},"text":"List items with heart","des":"Type your description here","featureDes":"Feature with star","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"}],"columns":{"desktop":2,"tablet":2,"mobile":1},"listIconColors":{"color":"#fff","bg":"rgba(5, 150, 105, 1)"},"themes":{"theme":"theme6"}} /-->' ); ?>
+                        </div>
+                        <div class="theme7">
+                            <?php echo $this->renderTemplate( '<!-- wp:ilb/icon-list {"lists":[{"icon":{"class":"fa-solid fa-star"},"text":"List items with a star","des":"Type your description here","featureDes":"Feature with star","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"http://localhost/wordpress1/wp-content/uploads/2024/03/facebook.png"},{"icon":{"class":"fa-solid fa-check-circle"},"text":"List items with circle","des":"Type your description here","featureDes":"Feature with circle check","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"},{"icon":{"class":"fa-solid fa-check-square"},"text":"List items with check","des":"Type your description here","featureDes":"Feature with square check","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"},{"icon":{"class":"fa-solid fa-heart"},"text":"List items with heart","des":"Type your description here","featureDes":"Feature with star","link":"","badgeTitle":"Popular","theme6BtnTitle":"action","uploadIconUrl":"https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"}],"columns":{"desktop":2,"tablet":2,"mobile":1},"themes":{"theme":"theme7"}} /-->' ); ?>
+                        </div>
+                    </div>
+                </div>
+            <?php }
 
             function adminEnqueueScripts($hook)
             {
                 if ('tools_page_icon-list' === $hook) {
-                    wp_enqueue_style('ilb-admin-help', ILB_DIR_URL . 'build/admin-help.css', [], ILB_VERSION);
-                    wp_enqueue_script('ilb-admin-help', ILB_DIR_URL . 'build/admin-help.js', ['react', 'react-dom'], ILB_VERSION);
+                    wp_register_script('ilb-view', ILB_DIR_URL . 'build/view.js', ['react', 'react-dom'], ILB_VERSION);
+                    wp_register_style('fontAwesome', ILB_DIR_URL . 'assets/css/font-awesome.min.css', [], ILB_VERSION);
+                    wp_register_style('ilb-view', ILB_DIR_URL . 'build/view.css', [ 'fontAwesome' ], ILB_VERSION);
+                    wp_enqueue_style('ilb-admin-help', ILB_DIR_URL . 'build/admin-help.css', [ 'ilb-view' ], ILB_VERSION);
+                    wp_enqueue_script('ilb-admin-help', ILB_DIR_URL . 'build/admin-help.js', ['react', 'react-dom','wp-components' ], ILB_VERSION);
                     wp_set_script_translations('ilb-admin-help', 'icon-list', ILB_DIR_PATH . 'languages');
                 }
             }
