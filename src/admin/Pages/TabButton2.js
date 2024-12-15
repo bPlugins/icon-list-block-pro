@@ -24,7 +24,7 @@ const TabButton2 = ({ mainEl, themeHTML, setThemeHTML, theme, setTheme }) => {
     return (
         <div className="tab-container">
             <nav className="tabs">
-                <h2 style={{ textAlign: "left" }}>Select Your Theme:</h2>
+                <h2 className='ul-head'>Select Your Theme:</h2>
                 <ul className="tab-list">
                     {tabs.map(tab => (
                         <li
