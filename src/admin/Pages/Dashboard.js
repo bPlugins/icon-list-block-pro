@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../Layout/Layout';
 import { proFeatures } from '../../utils/options';
-
-const SelectControl = wp.components.SelectControl;
+import TabButton2 from './TabButton2';
 
 const Dashboard = ({ mainEl }) => {
   const [theme, setTheme] = useState('default');
@@ -27,8 +26,14 @@ const Dashboard = ({ mainEl }) => {
       <div className="feature-section">
         <div className="feature-container">
           <div className="feature-grid">
+
+
+            {/* TabButton Here */}
+            {/* <TabButton theme={theme} setTheme={setTheme} /> */}
+            <TabButton2 themeHTML={themeHTML} setThemeHTML={setThemeHTML} mainEl={mainEl} theme={theme} setTheme={setTheme} />
+
             {/* Demo section */}
-            <div className='icon-demo-section'>
+            {/* <div className='icon-demo-section'>
               <h2>View Themes Here</h2>
               <div className="icon-demo-container">
                 <div dangerouslySetInnerHTML={{ __html: themeHTML }}>
@@ -43,7 +48,7 @@ const Dashboard = ({ mainEl }) => {
                   { label: 'Theme 7', value: 'theme7' },
                 ]} />
               </div>
-            </div>
+            </div> */}
 
             <div className="feature-content">
               <p className="section-heading">Awesome Premium Features</p>

@@ -4,7 +4,6 @@ import logo from '../../../assets/images/logo.png';
 import '../help.scss';
 
 const Header = ({ navigation }) => {
-
   return (
     <div className="dashboard-heading-container">
       <div className="dashboard-heading">
