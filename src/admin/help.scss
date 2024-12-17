@@ -150,8 +150,22 @@
 
       .feature-container {
         margin: 0 auto;
-        padding: 20px 30px;
+        padding: 30px 30px;
         width: 100%;
+
+        .premium-head-content {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          h1 {
+            text-align: left;
+          }
+        }
+
+        .premium-follow-image {
+          text-align: left;
+        }
       }
 
       .feature-grid {
@@ -174,6 +188,7 @@
           font-weight: 700;
           line-height: 2rem;
           color: #1a202c;
+          text-align: left;
         }
 
         .section-description {
@@ -181,7 +196,8 @@
           font-size: 1.125rem;
           line-height: 1rem;
           color: #4a5568;
-          text-align: center;
+          text-align: left;
+
         }
       }
 
@@ -193,6 +209,12 @@
         padding: 15px;
 
         .feature-item {
+          border: 1px solid gray;
+          padding: 10px;
+          border-radius: 6px;
+          text-align: left;
+
+
           .feature-name {
             font-size: 18px;
             font-weight: 600;
@@ -205,16 +227,16 @@
         }
       }
 
-      .upgrade-btn-container {
-        display: flex;
-        justify-content: center;
-        margin: 50px auto;
+      // .upgrade-btn-container {
+      //   display: flex;
+      //   justify-content: center;
+      //   margin: 50px auto;
 
-        .upgrade-btn {
-          padding: 6px 20px;
-          font-size: 20px;
-        }
-      }
+      //   .upgrade-btn {
+      //     padding: 6px 20px;
+      //     font-size: 20px;
+      //   }
+      // }
     }
 
     // Support CSS 

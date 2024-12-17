@@ -7,7 +7,7 @@ import Support from './Pages/Support';
 
 const App = ({ mainEl }) => {
   return (
-    <>.
+    <>
       <Toaster position="bottom-center" />
       <Routes>
         <Route path="/dashboard" element={<Dashboard mainEl={mainEl} />} />

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { List, CornerLeftDown } from 'lucide-react';
 
 import './TabButton.scss';
+import UpgradeBtn from './UpgradeBtn';
 
 const tabs = [
     { id: 'default', label: 'Default', icon: <List />, isPro: false },
@@ -21,13 +22,19 @@ const TabButton = ({ mainEl, themeHTML, setThemeHTML, theme, setTheme }) => {
         setThemeHTML(defaultTheme);
     }, [theme, mainEl]);
 
+
     return (
         <div className='tab-section'>
-            <div className='dashboard-header-section'>
-                <h1>Thank you for installing the <span className='blockName'>Icon List Block Plugin!</span></h1>
-                <div className='premium-head'>
-                    <CornerLeftDown className='leftDownIcon' />
-                    <h3>Check out some of our amazing premium themes below.</h3>
+            <div className='dashboard-header-main-section'>
+                <div className="dashboard-header-section">
+                    <h1>Thank you for installing the <span className='blockName'>Icon List Block Plugin!</span></h1>
+                    <div className='premium-head'>
+                        <CornerLeftDown className='leftDownIcon' />
+                        <h3>Check out some of our amazing premium themes below.</h3>
+                    </div>
+                </div>
+                <div>
+                    <UpgradeBtn />
                 </div>
             </div>
             <div className="tab-container">

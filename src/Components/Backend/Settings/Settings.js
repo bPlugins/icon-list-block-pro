@@ -553,7 +553,7 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 			<AlignmentToolbar value={position} onChange={val => setAttributes({ position: val })} describedBy={__('Content Position')} />
 		</BlockControls>
 
-		<AboutProModal isProModalOpen={isProModalOpen} setIsProModalOpen={setIsProModalOpen} link='https://bplugins.com/products/icon-list-block/#pricing'>
+		<AboutProModal isProModalOpen={isProModalOpen} setIsProModalOpen={setIsProModalOpen} link='https://checkout.freemius.com/plugin/17174/plan/28639/'>
 			<li>&emsp;<strong>{__('Choose Your Preferred Theme: ', 'icon-list')}</strong>{__('Select the theme of your choice to personalize your experience and give your website the look and feel that suits your style.', 'icon-list')}</li>
 			<li>&emsp;<strong>{__('Background On Your List Item: ', 'icon-list')}</strong>{__('Customize the background of your list items to enhance their appearance and match your design preferences.', 'icon-list')}</li>
 			<li>&emsp;<strong>{__('Hide/Show List Item URL Icon: ', 'icon-list')}</strong>{__('Toggle the visibility of URL icons for list items, allowing you to show or hide them based on your design needs.', 'icon-list')}</li>
