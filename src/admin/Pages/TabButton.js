@@ -29,11 +29,10 @@ const TabButton = ({ mainEl, themeHTML, setThemeHTML, theme, setTheme }) => {
                     <CornerLeftDown className='leftDownIcon' />
                     <h3>Check out some of our amazing premium themes below.</h3>
                 </div>
-                <hr className='divider' />
             </div>
             <div className="tab-container">
                 <nav className="tabs">
-                    <h2 className='ul-head'>Amazing themes:</h2>
+                    <h2 className='ul-head'>List of available themes:</h2>
                     <ul className="tab-list">
                         {tabs.map(tab => (
                             <li

@@ -5,20 +5,13 @@
 
 .dashboard-header-section {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .premium-head {
     display: flex;
     align-items: center;
-    justify-content: center;
-
-}
-
-.divider {
-    width: 150px;
-    padding: 2px;
-    background: #4527A4;
-    border-radius: 7px;
+    justify-content: left;
 
 }
 
@@ -32,6 +25,7 @@
     min-height: 100%;
     justify-content: center;
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .tabs {
