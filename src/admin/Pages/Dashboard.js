@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../Layout/Layout';
 import { proFeatures } from '../../utils/options';
-import TabButton2 from './TabButton2';
+import TabButton from './TabButton';
 
 const Dashboard = ({ mainEl }) => {
   const [theme, setTheme] = useState('default');
@@ -27,28 +27,8 @@ const Dashboard = ({ mainEl }) => {
         <div className="feature-container">
           <div className="feature-grid">
 
-
             {/* TabButton Here */}
-            {/* <TabButton theme={theme} setTheme={setTheme} /> */}
-            <TabButton2 themeHTML={themeHTML} setThemeHTML={setThemeHTML} mainEl={mainEl} theme={theme} setTheme={setTheme} />
-
-            {/* Demo section */}
-            {/* <div className='icon-demo-section'>
-              <h2>View Themes Here</h2>
-              <div className="icon-demo-container">
-                <div dangerouslySetInnerHTML={{ __html: themeHTML }}>
-                </div>
-                <SelectControl className="iconSelect" label='Select Theme' labelPosition='left' value={theme} onChange={val => setTheme(val)} options={[
-                  { label: 'Default', value: 'default' },
-                  { label: 'Theme 2', value: 'theme2' },
-                  { label: 'Theme 3', value: 'theme3' },
-                  { label: 'Theme 4', value: 'theme4' },
-                  { label: 'Theme 5', value: 'theme5' },
-                  { label: 'Theme 6', value: 'theme6' },
-                  { label: 'Theme 7', value: 'theme7' },
-                ]} />
-              </div>
-            </div> */}
+            <TabButton themeHTML={themeHTML} setThemeHTML={setThemeHTML} mainEl={mainEl} theme={theme} setTheme={setTheme} />
 
             <div className="feature-content">
               <p className="section-heading">Awesome Premium Features</p>
