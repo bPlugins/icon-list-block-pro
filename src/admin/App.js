@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Dashboard from './Pages/Dashboard';
-import { Toaster } from 'react-hot-toast';
 import Support from './Pages/Support';
 
 
@@ -8,7 +7,6 @@ import Support from './Pages/Support';
 const App = ({ mainEl }) => {
   return (
     <>
-      <Toaster position="bottom-center" />
       <Routes>
         <Route path="/dashboard" element={<Dashboard mainEl={mainEl} />} />
         <Route path="/support" element={<Support />} />

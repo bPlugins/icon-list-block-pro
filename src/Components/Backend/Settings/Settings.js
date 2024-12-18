@@ -15,10 +15,9 @@ import { generalStyleTabs } from '../../../utils/options';
 import { produce } from 'immer';
 
 const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiveIndex, isPremium, device }) => {
-	const { isTitle, isDesc, lists, isListLinkInNewTab, alignment, width, background, padding, border, shadow, position, headerMargin, titleColor, descTypo, descColor, isHeaderSep, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, themes, descriptionTypo, descriptionColor, themeOptions, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton, columns, columnGap, rowGap, } = attributes;
+	const { isTitle, isDesc, lists, isListLinkInNewTab, alignment, width, background, padding, border, shadow, position, headerMargin, titleColor, descTypo, descColor, isHeaderSep, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, themes, descriptionTypo, descriptionColor, themeOptions, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton, columns, columnGap, rowGap, uploadListIconSize } = attributes;
 
 	const { rightIconColor, isBadge, isUrlIcon, isButton } = themeOptions;
-	const { featureIconSize } = featureThemeStyles;
 	const { iconPulsColor, iconBgBlur } = theme5Styles;
 	const { animateColor } = singleIconColor;
 	const { setIconUpload } = iconUploadButton;
@@ -342,12 +341,20 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 
 						{
 							("default" === theme || "theme2" === theme || "theme4" === theme) && <>
-								<Label>{__('Icon Size:', 'icon-list')}</Label>
-								<RangeControl value={listIconSize} onChange={val => setAttributes({ listIconSize: val })} min={0} max={120} step={1} allowReset={true} resetFallbackValue={20} initialPosition={20} />
 
 								{
 									"select" === setIconUpload && <>
+										<Label>{__('Icon Size:', 'icon-list')}</Label>
+										<RangeControl value={listIconSize} onChange={val => setAttributes({ listIconSize: val })} min={0} max={120} step={1} allowReset={true} resetFallbackValue={22} initialPosition={22} />
+
 										<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
+									</>
+								}
+
+								{
+									"upload" === setIconUpload && <>
+										<Label>{__('Upload Icon Size:', 'icon-list')}</Label>
+										<RangeControl value={uploadListIconSize} onChange={val => setAttributes({ uploadListIconSize: val })} min={0} max={120} step={1} allowReset={true} resetFallbackValue={36} initialPosition={36} />
 									</>
 								}
 							</>
@@ -417,17 +424,20 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 						{/* Theme 3 style setting here */}
 						{
 							("theme3" === theme || "theme6" === theme) && <>
-								<Label>{__('Icon Size:', 'icon-list')}</Label>
-								<RangeControl value={featureIconSize} onChange={val => {
-									const newSize = produce(featureThemeStyles, draft => {
-										draft.featureIconSize = val;
-									})
-									setAttributes({ featureThemeStyles: newSize })
-								}} min={0} max={120} step={1} allowReset={true} resetFallbackValue={28} initialPosition={28} />
 
 								{
 									"select" === setIconUpload && <>
+										<Label>{__('Icon Size:', 'icon-list')}</Label>
+										<RangeControl value={listIconSize} onChange={val => setAttributes({ listIconSize: val })} min={0} max={120} step={1} allowReset={true} resetFallbackValue={22} initialPosition={22} />
+
 										<ColorsControl label={__('Icon Colors', 'icon-list')} value={listIconColors} onChange={val => setAttributes({ listIconColors: val })} defaults={{ color: '#fff', bg: '#4527A4' }} />
+									</>
+								}
+
+								{
+									"upload" === setIconUpload && <>
+										<Label>{__('Upload Icon Size:', 'icon-list')}</Label>
+										<RangeControl value={uploadListIconSize} onChange={val => setAttributes({ uploadListIconSize: val })} min={0} max={120} step={1} allowReset={true} resetFallbackValue={36} initialPosition={36} />
 									</>
 								}
 
@@ -442,13 +452,19 @@ const Settings = ({ attributes, setAttributes, updateList, activeIndex, setActiv
 
 						{
 							("theme5" === theme || "theme7" === theme) && <>
-								<Label>{__('Icon Size:', 'icon-list')}</Label>
-								<RangeControl value={featureIconSize} onChange={val => {
-									const newSize = produce(featureThemeStyles, draft => {
-										draft.featureIconSize = val;
-									})
-									setAttributes({ featureThemeStyles: newSize })
-								}} min={0} max={120} step={1} allowReset={true} resetFallbackValue={28} initialPosition={28} />
+								{
+									"select" === setIconUpload && <>
+										<Label>{__('Icon Size:', 'icon-list')}</Label>
+										<RangeControl value={listIconSize} onChange={val => setAttributes({ listIconSize: val })} min={0} max={120} step={1} allowReset={true} resetFallbackValue={22} initialPosition={22} />
+									</>
+								}
+
+								{
+									"upload" === setIconUpload && <>
+										<Label>{__('Upload Icon Size:', 'icon-list')}</Label>
+										<RangeControl value={uploadListIconSize} onChange={val => setAttributes({ uploadListIconSize: val })} min={0} max={120} step={1} allowReset={true} resetFallbackValue={36} initialPosition={36} />
+									</>
+								}
 
 								{
 									"theme7" === theme && <ColorControl

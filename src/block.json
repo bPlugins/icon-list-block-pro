@@ -48,7 +48,7 @@
 					"link": "",
 					"badgeTitle": "Popular",
 					"theme6BtnTitle": "action",
-					"uploadIconUrl": "http://localhost/wordpress1/wp-content/uploads/2024/03/facebook.png"
+					"uploadIconUrl": "https://i.ibb.co.com/X5kT0kp/facebook.png"
 				},
 				{
 					"icon": {
@@ -60,7 +60,7 @@
 					"link": "",
 					"badgeTitle": "Popular",
 					"theme6BtnTitle": "action",
-					"uploadIconUrl": "https://static.vecteezy.com/system/resources/previews/016/716/467/non_2x/twitter-icon-free-png.png"
+					"uploadIconUrl": "https://i.ibb.co.com/PMNw2gY/twitter.png"
 				},
 				{
 					"icon": {
@@ -72,7 +72,7 @@
 					"link": "",
 					"badgeTitle": "Popular",
 					"theme6BtnTitle": "action",
-					"uploadIconUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png"
+					"uploadIconUrl": "https://i.ibb.co.com/gwqfvbF/linkedin.png"
 				},
 				{
 					"icon": {
@@ -84,7 +84,7 @@
 					"link": "",
 					"badgeTitle": "Popular",
 					"theme6BtnTitle": "action",
-					"uploadIconUrl": "https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png"
+					"uploadIconUrl": "https://i.ibb.co.com/268pCN9/instagram.png"
 				}
 			]
 		},
@@ -227,7 +227,11 @@
 		},
 		"listIconSize": {
 			"type": "number",
-			"default": 20
+			"default": 22
+		},
+		"uploadListIconSize": {
+			"type": "number",
+			"default": 36
 		},
 		"listIconColors": {
 			"type": "object",
@@ -268,13 +272,6 @@
 			"type": "object",
 			"default": {
 				"theme": "default"
-			}
-		},
-		"featureThemeStyles": {
-			"type": "object",
-			"default": {
-				"featureIconSize": 28,
-				"iconColor": "#A6AEBF"
 			}
 		},
 		"featureTitle": {

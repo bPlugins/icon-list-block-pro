@@ -1,5 +1,4 @@
-import { Sparkles } from 'lucide-react';
-
+import { Sparkles } from '../../utils/icons';
 import './UpgradeBtn.scss';
 
 const UpgradeBtn = () => {

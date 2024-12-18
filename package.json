@@ -6,24 +6,19 @@
 	"license": "ISC",
 	"main": "build/index.js",
 	"scripts": {
-		"build": "wp-scripts build",
-		"start": "wp-scripts start",
-		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses",
-		"format": "wp-scripts format",
+		"packages-update": "wp-scripts packages-update",
+		"lint": "eslint src",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
-		"lint:md:docs": "wp-scripts lint-md-docs",
-		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"packages-update": "wp-scripts packages-update",
-		"plugin-zip": "wp-scripts plugin-zip",
-		"test:e2e": "wp-scripts test-e2e",
-		"test:unit": "wp-scripts test-unit-js",
-		"i18n-pot": "wp i18n make-pot . i18n/icon-list.pot --exclude=\"src, node_modules, pdfjs\" && cp ./i18n/icon-list.pot ./i18n/icon-list-en_US.po",
-		"i18n-json": "wp i18n make-json i18n/ --no-purge",
-		"i18n-mo": "wp i18n make-mo i18n/",
+		"format": "wp-scripts format",
+		"start": "wp-scripts start --webpack-copy-php",
+		"build": "wp-scripts build --webpack-copy-php",
+		"i18n-pot": "wp i18n make-pot . languages/icon-list.pot --exclude=\"src\" && cp ./languages/icon-list.pot ./languages/icon-list-en_US.po",
+		"i18n-json": "wp i18n make-json languages/ --no-purge",
+		"i18n-mo": "wp i18n make-mo languages/",
 		"i18n": "npm run i18n-pot && npm run i18n-json && npm run i18n-mo",
-		"bundle": "wp-scripts build && npm run i18n && gulp bundle && gulp plugin_zip"
+		"plugin-zip": "wp-scripts plugin-zip",
+		"bundle": "npm run lint && npm run build && npm run i18n && npm run plugin-zip"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^26.0.0",
@@ -33,9 +28,6 @@
 	},
 	"dependencies": {
 		"immer": "^10.1.1",
-		"lucide-react": "^0.460.0",
-		"react-hot-toast": "^2.4.1",
-		"react-icons": "^5.3.0",
 		"react-router-dom": "^7.0.1"
 	}
 }

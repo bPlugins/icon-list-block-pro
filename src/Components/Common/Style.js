@@ -3,9 +3,7 @@ import { getBackgroundCSS, getBorderCSS, getColorsCSS, getSeparatorCSS, getShado
 import { prefix } from '../../utils/data';
 
 const Style = ({ attributes, id }) => {
-	const { alignment, width, background, padding, border, shadow, headerMargin, titleTypo, titleColor, descTypo, descColor, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, descriptionColor, descriptionTypo, featureThemeStyles, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton, columns, columnGap, rowGap } = attributes;
-
-	const { featureIconSize } = featureThemeStyles;
+	const { alignment, width, background, padding, border, shadow, headerMargin, titleTypo, titleColor, descTypo, descColor, headerSep, listIconSize, listIconColors, listTextTypo, listTextColor, descriptionColor, descriptionTypo, badgeStyles, badgeTextTypo, theme5Styles, featureTypo, listItemsBgColor, singleIconColor, theme6Styles, iconUploadButton, columns, columnGap, rowGap, uploadListIconSize } = attributes
 	const { iconPulsColor, iconBgBlur } = theme5Styles;
 	const { animateColor } = singleIconColor;
 	const { setIconUpload } = iconUploadButton;
@@ -98,26 +96,26 @@ const Style = ({ attributes, id }) => {
 			row-gap: ${rowGap}px;
 		}
 		${defaultImgSl} img{
-			width: ${listIconSize}px;
-			height: ${listIconSize}px;
+			width: ${uploadListIconSize}px;
+			height: ${uploadListIconSize}px;
 		}
 		${featureImgSl} img{
-			width: ${featureIconSize}px;
-			height: ${featureIconSize}px;
+			width: ${uploadListIconSize}px;
+			height: ${uploadListIconSize}px;
 		}
 		${theme5ImgSl} img{
-			width: ${featureIconSize}px !important;
-			height: ${featureIconSize}px !important;
+			width: ${uploadListIconSize}px !important;
+			height: ${uploadListIconSize}px !important;
 		}
 		${theme6ImgSl} img{
-			width: ${featureIconSize}px !important;
-			height: ${featureIconSize}px !important;
+			width: ${uploadListIconSize}px !important;
+			height: ${uploadListIconSize}px !important;
 			max-width:initial;
 		}
 		
 		${theme7ImgSl} img{
-			width: ${featureIconSize}px !important;
-			height: ${featureIconSize}px !important;
+			width: ${uploadListIconSize}px !important;
+			height: ${uploadListIconSize}px !important;
 		}
 		${mainSl}{
 			text-align: ${alignment};
@@ -161,7 +159,7 @@ const Style = ({ attributes, id }) => {
 			color: ${titleColor};
 		}
 		${featureIconSl}{
-			font-size: ${featureIconSize}px;
+			font-size: ${listIconSize}px;
 			${getColorsCSS(listIconColors)}
 			padding: 8px;
     		border-radius: 8px;
@@ -184,7 +182,7 @@ const Style = ({ attributes, id }) => {
 		}
 		${theme5IconSl}{
 			color: ${listIconColors};
-			font-size: ${featureIconSize}px;
+			font-size: ${listIconSize}px;
 		}
 		
 		${theme5TitleSl}{
@@ -201,8 +199,8 @@ const Style = ({ attributes, id }) => {
 		}
 		${theme5IconCircle}{
 			 ${setIconUpload === "select" && `
-				width: calc(${featureIconSize}px + 1.3rem);
-				height: calc(${featureIconSize}px + 1.3rem);
+				width: calc(${listIconSize}px + 1.3rem);
+				height: calc(${listIconSize}px + 1.3rem);
 				${getColorsCSS(listIconColors)}
 			`
 			}
@@ -210,16 +208,16 @@ const Style = ({ attributes, id }) => {
 		${theme5IconWrapper}{
 			
 			${setIconUpload === "select" ? `
-            width: calc(${featureIconSize}px/2 + 3rem);
-			height: calc(${featureIconSize}px/2 + 3rem);
+            width: calc(${listIconSize}px/2 + 3rem);
+			height: calc(${listIconSize}px/2 + 3rem);
 			` : `
-			width: calc(${featureIconSize}px/2 + 2rem);
-			height: calc(${featureIconSize}px/2 + 2rem);
+			width: calc(${listIconSize}px/2 + 2rem);
+			height: calc(${listIconSize}px/2 + 2rem);
 				`
 			}
 		}
 		${theme6IconSl}{
-			font-size: ${featureIconSize}px;
+			font-size: ${listIconSize}px;
 			${getColorsCSS(listIconColors)}
 		    padding: 7px;
             border-radius: 4px;
@@ -237,7 +235,7 @@ const Style = ({ attributes, id }) => {
 			color: ${listTextColor};
 		}
 		${theme7IconSl}{
-			font-size: ${featureIconSize}px;
+			font-size: ${listIconSize}px;
 			${getColorsCSS(listIconColors)}
 		}
 		${theme7satelliteSl}{

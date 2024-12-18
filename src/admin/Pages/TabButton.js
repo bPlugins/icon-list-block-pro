@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
-import { List, CornerLeftDown } from 'lucide-react';
 
 import './TabButton.scss';
 import UpgradeBtn from './UpgradeBtn';
+import { LeftDownArrow, ListIcon } from '../../utils/icons';
 
 const tabs = [
-    { id: 'default', label: 'Default', icon: <List />, isPro: false },
-    { id: 'theme2', label: 'Theme 2', icon: <List />, isPro: true },
-    { id: 'theme3', label: 'Theme 3', icon: <List />, isPro: true },
-    { id: 'theme4', label: 'Theme 4', icon: <List />, isPro: true },
-    { id: 'theme5', label: 'Theme 5', icon: <List />, isPro: true },
-    { id: 'theme6', label: 'Theme 6', icon: <List />, isPro: true },
-    { id: 'theme7', label: 'Theme 7', icon: <List />, isPro: true },
+    { id: 'default', label: 'Default', icon: <ListIcon />, isPro: false },
+    { id: 'theme2', label: 'Theme 2', icon: <ListIcon />, isPro: true },
+    { id: 'theme3', label: 'Theme 3', icon: <ListIcon />, isPro: true },
+    { id: 'theme4', label: 'Theme 4', icon: <ListIcon />, isPro: true },
+    { id: 'theme5', label: 'Theme 5', icon: <ListIcon />, isPro: true },
+    { id: 'theme6', label: 'Theme 6', icon: <ListIcon />, isPro: true },
+    { id: 'theme7', label: 'Theme 7', icon: <ListIcon />, isPro: true },
 ];
 
 const TabButton = ({ mainEl, themeHTML, setThemeHTML, theme, setTheme }) => {
@@ -29,7 +29,7 @@ const TabButton = ({ mainEl, themeHTML, setThemeHTML, theme, setTheme }) => {
                 <div className="dashboard-header-section">
                     <h1>Thank you for installing the <span className='blockName'>Icon List Block Plugin!</span></h1>
                     <div className='premium-head'>
-                        <CornerLeftDown className='leftDownIcon' />
+                        <LeftDownArrow className="leftDownIcon" />
                         <h3>Check out some of our amazing premium themes below.</h3>
                     </div>
                 </div>

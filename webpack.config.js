@@ -12,8 +12,7 @@ module.exports = {
 	...defaultConfig,
 	entry: {
 		...defaultConfig.entry(),
-		'admin-help': './src/admin/help.js',
-		'admin-style': './src/admin/help.scss'
+		'admin-help': './src/admin/help.js'
 	},
 	plugins: [
 		...plugins,

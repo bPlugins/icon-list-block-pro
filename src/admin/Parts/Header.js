@@ -18,7 +18,7 @@ const Header = ({ navigation }) => {
           </h1>
         </div>
         <div className="plugin-version">
-          v1.0.9
+          v1.1.0
         </div>
       </div>
 

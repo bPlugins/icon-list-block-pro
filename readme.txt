@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, icon list, bullet list, menu icon, list icon
 Requires at least: 6.5+
 Tested up to: 6.7.1
-Stable tag: 1.0.9
+Stable tag: 1.1.0
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -116,38 +116,9 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 == Changelog ==
 
-= 1.0.9 =
-* Fix the inner link visible issue.
-
-= 1.0.8 =
-* Update icon library
-
-= 1.0.7 =
-* Change list item message from the editor
-
-= 1.0.6 =
-* Add link tab option
-
-= 1.0.5 =
-* Add translate feature
-
-= 1.0.4 =
-* Add the link to the list item
-
-= 1.0.3 =
-* Fix Width
-
-= 1.0.2 =
-* Fix HTML Render
-
-= 1.0.1 =
-* Fix CSS issue
-
-= 1.0.0 =
-* Initial Release
-
-
-== Upgrade Notice ==
+= 1.1.0 - 18 Dec 24 =
+* Optimize file size.
+* Create multiple themes.
 
 = 1.0.9 =
 * Fix the inner link visible issue.
@@ -178,3 +149,18 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 = 1.0.0 =
 * Initial Release
+
+
+== External Service ==
+
+= Service Name: Image source =
+- Service URL: https://i.ibb.co.com/X5kT0kp/facebook.png
+- Service URL: https://i.ibb.co.com/PMNw2gY/twitter.png
+- Service URL: https://i.ibb.co.com/gwqfvbF/linkedin.png
+- Service URL: https://i.ibb.co.com/268pCN9/instagram.png
+
+
+== Main Image Source ==
+- Host URL: https://imgbb.com/
+- Download URL: https://www.flaticon.com/ 
+
