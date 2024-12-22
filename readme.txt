@@ -111,7 +111,13 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 == Screenshots ==
 
 1. Settings
-2. Icon List
+2. Theme 1
+3. Theme 6
+4. Theme 2
+5. Theme 3
+6. Theme 4
+7. Theme 5
+8. Theme 7
 
 
 == Changelog ==
