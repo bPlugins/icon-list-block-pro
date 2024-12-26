@@ -56,12 +56,12 @@ export const proFeatures = [
 			"Set the color and background for the badge text to ensure it stands out and complements your design."
 	},
 	{
-		name: "Icon Animated Puls Color",
+		name: "Icon Animated Pulse Color",
 		description:
 			"Choose a color for the animated pulse effect to draw attention and enhance visual engagement."
 	},
 	{
-		name: "Icon Puls Blur Background",
+		name: "Icon Pulse Blur Background",
 		description:
 			"Adjust the blur effect of the pulse background to create a soft, visually appealing design."
 	},

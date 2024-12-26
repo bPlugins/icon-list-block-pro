@@ -2,7 +2,7 @@ import React from 'react';
 import Content from '../Parts/Content';
 import Header from '../Parts/Header';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, mainEl }) => {
   const navigation = [
     { name: 'Dashboard', href: '/dashboard' },
     { name: 'Support', href: '/support' },
@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="bplContainer">
-        <Header navigation={navigation} />
+        <Header navigation={navigation} mainEl={mainEl} />
         <Content>{children}</Content>
       </div>
     </>

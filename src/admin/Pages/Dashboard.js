@@ -28,7 +28,7 @@ const Dashboard = ({ mainEl }) => {
   const premium = mainEl.dataset.isPremium;
 
   return (
-    <Layout>
+    <Layout mainEl={mainEl}>
       <div className="feature-section">
         <div className="feature-container">
 

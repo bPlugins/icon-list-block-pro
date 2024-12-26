@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/abuhayat
 Tags: block, icon list, bullet list, menu icon, list icon
 Requires at least: 6.5+
 Tested up to: 6.7.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires PHP: 7.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -121,6 +121,10 @@ You can post your questions on the [support forum here](https://wordpress.org/su
 
 
 == Changelog ==
+
+= 1.1.1 - 26 Dec 24 =
+* admin dynamic version created.
+* Upgrade Pro Button Liked
 
 = 1.1.0 - 18 Dec 24 =
 * Optimize file size.

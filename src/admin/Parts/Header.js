@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
 import '../help.scss';
 
-const Header = ({ navigation }) => {
+const Header = ({ navigation, mainEl }) => {
+  const version = mainEl.dataset.version;
   return (
     <div className="dashboard-heading-container">
       <div className="dashboard-heading">
@@ -18,7 +19,7 @@ const Header = ({ navigation }) => {
           </h1>
         </div>
         <div className="plugin-version">
-          v1.1.0
+          v{version}
         </div>
       </div>
 

@@ -2,9 +2,9 @@ import React from 'react';
 import Layout from '../Layout/Layout';
 import HelpfulLinks from './HelpfulLinks';
 
-const Support = () => {
+const Support = ({ mainEl }) => {
     return (
-        <Layout>
+        <Layout mainEl={mainEl}>
             <div className='support-section'>
                 <div className='support-container'>
                     <HelpfulLinks />
